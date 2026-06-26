@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — SafePouch</title>
+  <meta name="description" content="Get in touch with SafePouch — tell us about your school, district, or venue and we'll send specs, pricing, and a pilot plan within one business day." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A0A0B'/%3E%3Ctext x='32' y='42' font-family='Manrope, sans-serif' font-weight='900' font-size='28' fill='%23FAFAF7' text-anchor='middle'%3ESP%3C/text%3E%3C/svg%3E" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            black:    '#0A0A0B',
+            'black-2': '#101012',
+            'black-3': '#16161A',
+            paper:    '#FAFAF7',
+            'paper-2': '#EFEFEA',
+            'paper-3': '#D9D9D2',
+            brass:    '#9A8347',
+            'brass-2': '#B89B5E',
+            'brass-3': '#D0BD8E',
+            line:     'rgba(250,250,247,0.10)',
+            'line-2': 'rgba(250,250,247,0.18)',
+          },
+          fontFamily: {
+            display: ['Manrope', '"Articulat CF"', 'Inter', 'system-ui', 'sans-serif'],
+            sans:    ['"Helvetica Neue"', 'Helvetica', 'Arial', 'system-ui', 'sans-serif'],
+          },
+          letterSpacing: {
+            tightest: '-0.045em',
+            'logo':   '-0.03em',
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --black:  #0A0A0B;
+      --paper:  #FAFAF7;
+      --brass:  #9A8347;
+      --brass-2:#B89B5E;
+    }
+    html, body { background: var(--black); }
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, system-ui, sans-serif;
+      color: var(--paper);
+      letter-spacing: 0.003em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    h1, h2, h3, h4, .display {
+      font-family: 'Manrope', 'Articulat CF', Inter, system-ui, sans-serif;
+      font-weight: 800;
+    }
+    .display-hero {
+      font-family: 'Manrope', 'Articulat CF', Inter, system-ui, sans-serif;
+      font-weight: 800;
+      font-stretch: 110%;
+      letter-spacing: -0.05em;
+      line-height: 0.95;
+    }
+
+    /* Grain overlay */
+    .grain::before {
+      content: '';
+      position: absolute; inset: 0;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.035 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+      opacity: .4;
+      mix-blend-mode: overlay;
+    }
+
+    .hero-stage { position: relative; overflow: hidden; }
+    .hero-wash {
+      position: absolute;
+      left: 50%; top: 0;
+      width: 1400px; height: 1100px;
+      transform: translate(-50%, -50%);
+      border-radius: 9999px;
+      background:
+        radial-gradient(closest-side at 50% 50%, rgba(250,250,247,0.10), transparent 70%),
+        radial-gradient(closest-side at 35% 55%, rgba(250,250,247,0.05), transparent 70%);
+      filter: blur(50px);
+      pointer-events: none;
+    }
+    .hero-spot {
+      position: absolute;
+      left: 50%; top: 10%;
+      width: 600px; height: 600px;
+      transform: translate(-50%, 0);
+      border-radius: 9999px;
+      background:
+        radial-gradient(closest-side at 50% 50%, rgba(154,131,71,0.32), transparent 70%);
+      filter: blur(60px);
+      pointer-events: none;
+    }
+
+    .card {
+      position: relative;
+      background: linear-gradient(180deg, rgba(250,250,247,0.025), rgba(250,250,247,0.01));
+      border: 1px solid rgba(250,250,247,0.08);
+      border-radius: 22px;
+    }
+
+    /* Primary button — brass-filled */
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 18px 32px; border-radius: 9999px;
+      background: transparent; border: 1px solid var(--brass-2);
+      color: var(--brass-2); font-weight: 700; letter-spacing: 0.01em;
+      box-shadow: none;
+      transition: transform .25s cubic-bezier(.2,.9,.3,1.3), background-color .25s ease, color .25s ease, box-shadow .25s ease;
+      cursor: pointer;
+    }
+    .btn-primary:hover { transform: translateY(-2px) scale(1.01); background: var(--brass-2); color: var(--black); box-shadow: 0 16px 36px -14px rgba(154,131,71,0.45); }
+    .btn-primary:active { transform: translateY(0) scale(0.99); }
+    .btn-primary:focus-visible { outline: 2px solid var(--paper); outline-offset: 4px; }
+
+    .btn-primary-sm {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 10px 20px; border-radius: 9999px;
+      background: transparent; border: 1px solid var(--brass-2);
+      color: var(--brass-2); font-weight: 700; font-size: 14px; letter-spacing: 0.01em;
+      box-shadow: none;
+      transition: transform .25s cubic-bezier(.2,.9,.3,1.3), background-color .25s ease, color .25s ease, box-shadow .25s ease;
+    }
+    .btn-primary-sm:hover { transform: translateY(-1px); background: var(--brass-2); color: var(--black); box-shadow: 0 12px 24px -12px rgba(154,131,71,0.45); }
+    .btn-primary-sm:focus-visible { outline: 2px solid var(--paper); outline-offset: 3px; }
+
+    .btn-secondary {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 16px 28px; border-radius: 9999px;
+      background: transparent; color: var(--paper); font-weight: 600;
+      border: 1px solid rgba(250,250,247,0.30);
+      transition: background .2s ease, transform .2s ease, border-color .2s ease;
+    }
+    .btn-secondary:hover { background: rgba(250,250,247,0.06); border-color: rgba(250,250,247,0.55); transform: translateY(-1px); }
+    .btn-secondary:focus-visible { outline: 2px solid var(--paper); outline-offset: 3px; }
+
+    /* Inline nav link with brass underline on hover */
+    .nav-link {
+      position: relative;
+      color: rgba(250,250,247,0.85);
+      font-size: 14px; font-weight: 500;
+      padding: 6px 0;
+      transition: color .2s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; right: 100%; bottom: 0;
+      height: 2px; background: var(--brass-2);
+      transition: right .25s cubic-bezier(.2,.9,.3,1.3);
+    }
+    .nav-link:hover { color: var(--paper); }
+    .nav-link:hover::after { right: 0; }
+    .nav-link:focus-visible { outline: 2px solid var(--paper); outline-offset: 4px; border-radius: 2px; }
+
+    .bullet { width: 9px; height: 9px; border-radius: 9999px; background: var(--paper); display: inline-block; flex-shrink: 0; position: relative; }
+    .bullet::after { content:''; position:absolute; inset:3px; border-radius:9999px; background: var(--brass-2); }
+
+    /* Form fields */
+    .field-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(250,250,247,0.55); }
+    .field {
+      width: 100%;
+      margin-top: 8px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(250,250,247,0.03);
+      border: 1px solid rgba(250,250,247,0.12);
+      color: var(--paper);
+      font-size: 15px;
+      transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+    .field::placeholder { color: rgba(250,250,247,0.32); }
+    .field:hover { border-color: rgba(250,250,247,0.22); }
+    .field:focus {
+      outline: none;
+      border-color: rgba(184,155,94,0.7);
+      background: rgba(250,250,247,0.05);
+      box-shadow: 0 0 0 3px rgba(154,131,71,0.18);
+    }
+    select.field { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23B89B5E' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 44px; }
+    select.field option { background: #16161A; color: var(--paper); }
+    textarea.field { resize: vertical; min-height: 130px; line-height: 1.6; }
+
+    h1 { letter-spacing: -0.045em; }
+    h2 { letter-spacing: -0.035em; }
+    h3 { letter-spacing: -0.025em; }
+
+    .sp-logo-reverse { filter: brightness(0) invert(1); }
+    /* Floating header — auto-hide on scroll down, return on scroll up */
+    header {
+      transition: transform .35s cubic-bezier(.2,.9,.3,1), background-color .3s ease, border-color .3s ease;
+      border-bottom: 1px solid transparent;
+      will-change: transform;
+    }
+    header.nav-hidden { transform: translateY(-100%); }
+    header.nav-scrolled {
+      background: rgba(10,10,11,0.82);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom-color: rgba(250,250,247,0.08);
+    }
+
+    /* Header legibility backdrop over hero imagery */
+    header::before {
+      content: '';
+      position: absolute; left: 0; right: 0; top: 0;
+      height: 172px;
+      background: linear-gradient(180deg, rgba(10,10,11,0.88) 0%, rgba(10,10,11,0.78) 30%, rgba(10,10,11,0.55) 60%, rgba(10,10,11,0) 100%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Mobile nav menu */
+    .nav-toggle { background: transparent; border: 0; cursor: pointer; padding: 4px; }
+    .mobile-menu {
+      position: fixed; inset: 0; z-index: 60;
+      background: rgba(10,10,11,0.97);
+      -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; visibility: hidden;
+      transition: opacity .3s ease, visibility .3s ease;
+    }
+    .mobile-menu.open { opacity: 1; visibility: visible; }
+    .mobile-menu-inner { display: flex; flex-direction: column; align-items: center; gap: 1.4rem; }
+    .mobile-menu-inner a:not(.btn-primary) {
+      font-family: 'Manrope', Inter, system-ui, sans-serif;
+      font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em;
+      color: var(--paper); transition: color .2s ease;
+    }
+    .mobile-menu-inner a:not(.btn-primary):hover { color: var(--brass-2); }
+    .mobile-close { position: absolute; top: 1.4rem; right: 1.4rem; background: transparent; border: 0; color: var(--paper); cursor: pointer; padding: 6px; }
+    body.menu-open { overflow: hidden; }
+
+  </style>
+</head>
+<body class="bg-black text-paper">
+
+  <!-- ============== HEADER ============== -->
+  <header class="fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-6 grid grid-cols-3 items-center">
+      <!-- mobile menu button -->
+      <button id="navToggle" type="button" class="nav-toggle md:hidden flex items-center justify-self-start text-paper" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      </button>
+
+      <!-- left nav -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="about.html" class="nav-link text-[13px] font-semibold uppercase tracking-[0.12em] whitespace-nowrap">Our Story</a>
+        <a href="index.html#how" class="nav-link text-[13px] font-semibold uppercase tracking-[0.12em] whitespace-nowrap">How it works</a>
+        <a href="index.html#spaces" class="nav-link text-[13px] font-semibold uppercase tracking-[0.12em] whitespace-nowrap">Device-free spaces</a>
+      </nav>
+
+      <!-- centered logo + tagline -->
+      <a href="index.html" class="flex flex-col items-center justify-center" aria-label="SafePouch home">
+        <img src="BRAND_ASSETS/Trans.png" alt="SafePouch" class="sp-logo-reverse h-10 md:h-14 w-auto" />
+        <span class="mt-1.5 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] text-brass-2">Devices Away. Attention Back.</span>
+      </a>
+
+      <!-- right nav -->
+      <nav class="hidden md:flex items-center justify-end gap-7">
+        <a href="schools.html" class="nav-link text-[13px] font-semibold uppercase tracking-[0.12em] whitespace-nowrap">Schools</a>
+        <a href="music.html" class="nav-link text-[13px] font-semibold uppercase tracking-[0.12em] whitespace-nowrap">Music</a>
+        <a href="mailto:hello@safepouch.co" class="btn-primary-sm">Email us</a>
+      </nav>
+
+      <!-- mobile right -->
+      <div class="flex md:hidden items-center justify-end">
+        <a href="mailto:hello@safepouch.co" class="btn-primary-sm">Email us</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile nav overlay -->
+  <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+    <button id="navClose" type="button" class="mobile-close" aria-label="Close menu">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+    </button>
+    <nav class="mobile-menu-inner">
+      <a href="index.html">Home</a>
+      <a href="about.html">Our Story</a>
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#spaces">Device-free spaces</a>
+      <a href="schools.html">Schools</a>
+      <a href="music.html">Music</a>
+      <a href="contact.html" class="btn-primary mt-4">Contact Us</a>
+    </nav>
+  </div>
+
+  <!-- ============== CONTACT ============== -->
+  <section class="hero-stage grain relative pt-40 md:pt-52 pb-24 md:pb-32">
+    <div class="hero-wash"></div>
+    <div class="hero-spot"></div>
+
+    <div class="relative max-w-5xl mx-auto px-5 md:px-8">
+      <div class="text-center">
+        <div class="flex items-center justify-center gap-3 text-brass-2 mb-4">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 4 8 8 8-8"/></svg>
+          <span class="text-xs font-bold uppercase tracking-widest">Contact Us</span>
+        </div>
+        <h1 class="display-hero text-[44px] sm:text-[60px] md:text-[80px]">Let's build your<br/>device-free space.</h1>
+        <p class="mt-6 text-paper/70 text-base md:text-lg leading-[1.7] max-w-2xl mx-auto">
+          Tell us about your school, district, or venue — student count or event capacity, and your timing.
+          We'll send specs, pricing, and a pilot plan within one business day.
+        </p>
+      </div>
+
+      <div class="mt-14 grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8">
+
+        <!-- Form -->
+        <div class="card p-6 md:p-9 lg:col-span-3">
+          <form id="contactForm" novalidate>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label class="field-label" for="name">Name</label>
+                <input class="field" type="text" id="name" name="name" placeholder="Your full name" required />
+              </div>
+              <div>
+                <label class="field-label" for="email">Email</label>
+                <input class="field" type="email" id="email" name="email" placeholder="you@district.org" required />
+              </div>
+              <div>
+                <label class="field-label" for="org">School / district / venue</label>
+                <input class="field" type="text" id="org" name="org" placeholder="e.g. Maranatha High School" required />
+              </div>
+              <div>
+                <label class="field-label" for="type">I'm reaching out about</label>
+                <select class="field" id="type" name="type">
+                  <option>A school</option>
+                  <option>A district</option>
+                  <option>A live event / venue</option>
+                  <option>Something else</option>
+                </select>
+              </div>
+              <div>
+                <label class="field-label" for="size">Students / capacity</label>
+                <input class="field" type="text" id="size" name="size" placeholder="e.g. 550 students" />
+              </div>
+              <div>
+                <label class="field-label" for="timing">Timing</label>
+                <input class="field" type="text" id="timing" name="timing" placeholder="e.g. Fall 2026 rollout" />
+              </div>
+            </div>
+
+            <div class="mt-5">
+              <label class="field-label" for="custom">Customization (optional)</label>
+              <input class="field" type="text" id="custom" name="custom" placeholder="Your colors, logo, or mascot — we'll print pouches to match" />
+            </div>
+
+            <div class="mt-5">
+              <label class="field-label" for="message">Message</label>
+              <textarea class="field" id="message" name="message" placeholder="Tell us what you're trying to solve."></textarea>
+            </div>
+
+            <div class="mt-7 flex flex-col sm:flex-row items-center gap-4">
+              <button type="submit" class="btn-primary w-full sm:w-auto">Send message</button>
+              <span id="formNote" class="text-xs text-paper/50">Opens your email app — or write us directly at hello@safepouch.co</span>
+            </div>
+          </form>
+        </div>
+
+        <!-- Side panel -->
+        <div class="lg:col-span-2 space-y-6">
+          <div class="card p-6 md:p-8">
+            <h3 class="text-xl">Contact Us Directly</h3>
+            <p class="mt-3 text-paper/65 leading-[1.7] text-sm">Prefer email? Reach the team directly — we reply within one business day.</p>
+            <a href="mailto:hello@safepouch.co" class="mt-5 inline-flex items-center gap-2 text-brass-2 font-semibold">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              hello@safepouch.co
+            </a>
+          </div>
+
+          <div class="card p-6 md:p-8">
+            <h3 class="text-xl">Made yours</h3>
+            <p class="mt-3 text-paper/65 leading-[1.7] text-sm">Every pouch can be <b class="text-paper">customized to your district or school's liking</b> — your colors, your logo, or your mascot printed right on the pouch.</p>
+          </div>
+
+          <div class="card p-6 md:p-8">
+            <h3 class="text-xl">What happens next</h3>
+            <ul class="mt-4 space-y-3 text-sm text-paper/75">
+              <li class="flex gap-3"><span class="bullet mt-2"></span>We send specs and district-wide pricing.</li>
+              <li class="flex gap-3"><span class="bullet mt-2"></span>We scope your rollout — pouches, unlock bases, and training.</li>
+              <li class="flex gap-3"><span class="bullet mt-2"></span>You go device-free, bell to bell or show to show.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== Footer ============== -->
+  <footer class="relative pt-16 pb-10 border-t border-line">
+    <div class="max-w-5xl mx-auto px-5 md:px-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <div class="flex items-center gap-2">
+        <a href="index.html"><img src="BRAND_ASSETS/Trans.png" alt="SafePouch" class="sp-logo-reverse h-6 w-auto" /></a>
+      </div>
+      <nav class="flex items-center gap-6 text-xs text-paper/60">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">Our Story</a>
+        <a href="mailto:hello@safepouch.co" class="nav-link">hello@safepouch.co</a>
+        <a href="privacy.html" class="nav-link">Privacy</a>
+        <a href="terms.html" class="nav-link">Terms</a>
+      </nav>
+      <p class="text-xs text-paper/40">© 2026 SafePouch — Devices away. Attention back.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Build a mailto link from the form so it works without a backend.
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var f = e.target;
+      var get = function (id) { return (f.elements[id] && f.elements[id].value || '').trim(); };
+      var name = get('name'), email = get('email'), org = get('org');
+
+      if (!name || !email || !org) {
+        document.getElementById('formNote').textContent = 'Please add your name, email, and organization first.';
+        return;
+      }
+
+      var subject = 'SafePouch inquiry — ' + org;
+      var lines = [
+        'Name: ' + name,
+        'Email: ' + email,
+        'School / district / venue: ' + org,
+        'Type: ' + get('type'),
+        'Students / capacity: ' + (get('size') || '—'),
+        'Timing: ' + (get('timing') || '—'),
+        'Customization: ' + (get('custom') || '—'),
+        '',
+        'Message:',
+        get('message') || '—'
+      ];
+      var href = 'mailto:hello@safepouch.co'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(lines.join('\n'));
+      window.location.href = href;
+    });
+  </script>
+
+  <script>
+    (function(){
+      var header = document.querySelector('header');
+      if(!header) return;
+      var lastY = window.scrollY || 0, ticking = false;
+      function update(){
+        var y = window.scrollY || 0;
+        if (y > 24) header.classList.add('nav-scrolled'); else header.classList.remove('nav-scrolled');
+        if (y > lastY && y > 140) header.classList.add('nav-hidden');
+        else header.classList.remove('nav-hidden');
+        lastY = y; ticking = false;
+      }
+      window.addEventListener('scroll', function(){
+        if(!ticking){ window.requestAnimationFrame(update); ticking = true; }
+      }, {passive:true});
+      update();
+    })();
+  </script>
+  <script>
+    (function(){
+      var toggle = document.getElementById('navToggle');
+      var menu = document.getElementById('mobileMenu');
+      if(!toggle || !menu) return;
+      var closeBtn = document.getElementById('navClose');
+      function openMenu(){ menu.classList.add('open'); menu.setAttribute('aria-hidden','false'); toggle.setAttribute('aria-expanded','true'); document.body.classList.add('menu-open'); }
+      function closeMenu(){ menu.classList.remove('open'); menu.setAttribute('aria-hidden','true'); toggle.setAttribute('aria-expanded','false'); document.body.classList.remove('menu-open'); }
+      toggle.addEventListener('click', openMenu);
+      if(closeBtn) closeBtn.addEventListener('click', closeMenu);
+      menu.addEventListener('click', function(e){ if(e.target === menu || e.target.closest('a')) closeMenu(); });
+      document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMenu(); });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+# OS / editor
+.DS_Store
+*.log
+
+# Local tooling settings
+.claude/
+
+# Node (dev server is local-only)
+node_modules/
+
+# Local dev + working files — not part of the deployed site
+temporary screenshots/
+www.yeldra.com_.png
