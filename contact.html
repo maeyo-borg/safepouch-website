@@ -318,7 +318,10 @@
 
         <!-- Form -->
         <div class="card p-6 md:p-9 lg:col-span-3">
-          <form id="contactForm" novalidate>
+          <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+            <input type="hidden" name="_subject" value="New SafePouch inquiry" />
+            <!-- spam honeypot — bots fill this, humans don't see it -->
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:0;height:0;opacity:0;" />
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
                 <label class="field-label" for="name">Name</label>
@@ -363,9 +366,18 @@
 
             <div class="mt-7 flex flex-col sm:flex-row items-center gap-4">
               <button type="submit" class="btn-primary w-full sm:w-auto">Send message</button>
-              <span id="formNote" class="text-xs text-paper/50">Opens your email app — or write us directly at hello@safepouch.co</span>
+              <span id="formNote" class="text-xs text-paper/50">We reply within one business day — or email hello@safepouch.co</span>
             </div>
           </form>
+
+          <!-- Shown after a successful submit -->
+          <div id="formSuccess" class="hidden text-center py-12">
+            <span style="display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;border:1px solid rgba(184,155,94,0.45);background:rgba(184,155,94,0.10);color:var(--brass-2);">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </span>
+            <h3 class="mt-5 text-2xl">Thanks — your message is on its way.</h3>
+            <p class="mt-3 text-paper/70 leading-[1.7] max-w-md mx-auto">We'll reply within one business day with specs, pricing, and a pilot plan.</p>
+          </div>
         </div>
 
         <!-- Side panel -->
@@ -416,36 +428,65 @@
   </footer>
 
   <script>
-    // Build a mailto link from the form so it works without a backend.
-    document.getElementById('contactForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      var f = e.target;
-      var get = function (id) { return (f.elements[id] && f.elements[id].value || '').trim(); };
-      var name = get('name'), email = get('email'), org = get('org');
+    (function () {
+      var form = document.getElementById('contactForm');
+      if (!form) return;
+      var note = document.getElementById('formNote');
+      var success = document.getElementById('formSuccess');
+      var btn = form.querySelector('button[type="submit"]');
+      var get = function (id) { return (form.elements[id] && form.elements[id].value || '').trim(); };
 
-      if (!name || !email || !org) {
-        document.getElementById('formNote').textContent = 'Please add your name, email, and organization first.';
-        return;
+      // Falls back to the visitor's email app until a real Formspree ID is set.
+      function mailtoFallback() {
+        var lines = [
+          'Name: ' + get('name'),
+          'Email: ' + get('email'),
+          'School / district / venue: ' + get('org'),
+          'Type: ' + get('type'),
+          'Students / capacity: ' + (get('size') || '—'),
+          'Timing: ' + (get('timing') || '—'),
+          'Customization: ' + (get('custom') || '—'),
+          '', 'Message:', get('message') || '—'
+        ];
+        window.location.href = 'mailto:hello@safepouch.co'
+          + '?subject=' + encodeURIComponent('SafePouch inquiry — ' + get('org'))
+          + '&body=' + encodeURIComponent(lines.join('\n'));
       }
 
-      var subject = 'SafePouch inquiry — ' + org;
-      var lines = [
-        'Name: ' + name,
-        'Email: ' + email,
-        'School / district / venue: ' + org,
-        'Type: ' + get('type'),
-        'Students / capacity: ' + (get('size') || '—'),
-        'Timing: ' + (get('timing') || '—'),
-        'Customization: ' + (get('custom') || '—'),
-        '',
-        'Message:',
-        get('message') || '—'
-      ];
-      var href = 'mailto:hello@safepouch.co'
-        + '?subject=' + encodeURIComponent(subject)
-        + '&body=' + encodeURIComponent(lines.join('\n'));
-      window.location.href = href;
-    });
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!get('name') || !get('email') || !get('org')) {
+          note.textContent = 'Please add your name, email, and organization first.';
+          return;
+        }
+        // Not configured yet → keep working via email app.
+        if (form.action.indexOf('YOUR_FORM_ID') !== -1) { mailtoFallback(); return; }
+
+        var label = btn.textContent;
+        btn.disabled = true; btn.textContent = 'Sending…'; note.textContent = '';
+
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        }).then(function (res) {
+          if (res.ok) {
+            form.style.display = 'none';
+            if (success) {
+              success.classList.remove('hidden');
+              success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+          } else {
+            return res.json().then(function (d) {
+              throw new Error((d && d.errors && d.errors[0] && d.errors[0].message) || 'submit failed');
+            });
+          }
+        }).catch(function () {
+          btn.disabled = false; btn.textContent = label;
+          note.textContent = 'Something went wrong — please email hello@safepouch.co.';
+        });
+      });
+    })();
   </script>
 
   <script>
