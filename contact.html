@@ -337,10 +337,12 @@
 
         <!-- Form -->
         <div class="card p-6 md:p-9 lg:col-span-3">
-          <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+          <form id="contactForm" action="https://formsubmit.co/ajax/hello@safepouch.co" method="POST" novalidate>
             <input type="hidden" name="_subject" value="New SafePouch inquiry" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
             <!-- spam honeypot — bots fill this, humans don't see it -->
-            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:0;height:0;opacity:0;" />
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:0;height:0;opacity:0;" />
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
                 <label class="field-label" for="name">Name</label>
