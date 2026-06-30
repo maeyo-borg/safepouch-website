@@ -354,11 +354,12 @@
               </div>
               <div>
                 <label class="field-label" for="org">School / district / venue</label>
-                <input class="field" type="text" id="org" name="org" placeholder="e.g. Maranatha High School" required />
+                <input class="field" type="text" id="org" name="org" placeholder="Ex: Maranatha High School" required />
               </div>
               <div>
                 <label class="field-label" for="type">I'm reaching out about</label>
-                <select class="field" id="type" name="type">
+                <select class="field" id="type" name="type" required>
+                  <option value="" disabled selected>Select one</option>
                   <option>A school</option>
                   <option>A district</option>
                   <option>A live event / venue</option>
@@ -367,11 +368,11 @@
               </div>
               <div>
                 <label class="field-label" for="size">Students / capacity</label>
-                <input class="field" type="text" id="size" name="size" placeholder="e.g. 550 students" />
+                <input class="field" type="text" id="size" name="size" placeholder="Ex: 550 students" required />
               </div>
               <div>
                 <label class="field-label" for="timing">Timing</label>
-                <input class="field" type="text" id="timing" name="timing" placeholder="e.g. Fall 2026 rollout" />
+                <input class="field" type="text" id="timing" name="timing" placeholder="Ex: Fall 2026 rollout" required />
               </div>
             </div>
 
@@ -476,8 +477,8 @@
 
       form.addEventListener('submit', function (e) {
         e.preventDefault();
-        if (!get('name') || !get('email') || !get('org')) {
-          note.textContent = 'Please add your name, email, and organization first.';
+        if (!get('name') || !get('email') || !get('org') || !get('type') || !get('size') || !get('timing')) {
+          note.textContent = 'Please fill in all fields before sending.';
           return;
         }
         // Not configured yet → keep working via email app.
