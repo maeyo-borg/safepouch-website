@@ -187,6 +187,7 @@
 
     /* Form fields */
     .field-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(250,250,247,0.55); }
+    .field-label .req { color: var(--brass-2); margin-left: 3px; }
     .field {
       width: 100%;
       margin-top: 8px;
@@ -345,19 +346,19 @@
             <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:0;height:0;opacity:0;" />
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
-                <label class="field-label" for="name">Name</label>
+                <label class="field-label" for="name">Name<span class="req">*</span></label>
                 <input class="field" type="text" id="name" name="name" placeholder="Your full name" required />
               </div>
               <div>
-                <label class="field-label" for="email">Email</label>
+                <label class="field-label" for="email">Email<span class="req">*</span></label>
                 <input class="field" type="email" id="email" name="email" placeholder="you@district.org" required />
               </div>
               <div>
-                <label class="field-label" for="org">School / district / venue</label>
+                <label class="field-label" for="org">School / district / venue<span class="req">*</span></label>
                 <input class="field" type="text" id="org" name="org" placeholder="Ex: Maranatha High School" required />
               </div>
               <div>
-                <label class="field-label" for="type">I'm reaching out about</label>
+                <label class="field-label" for="type">I'm reaching out about<span class="req">*</span></label>
                 <select class="field" id="type" name="type" required>
                   <option value="" disabled selected>Select one</option>
                   <option>A school</option>
@@ -367,11 +368,11 @@
                 </select>
               </div>
               <div>
-                <label class="field-label" for="size">Students / capacity</label>
+                <label class="field-label" for="size">Students / capacity<span class="req">*</span></label>
                 <input class="field" type="text" id="size" name="size" placeholder="Ex: 550 students" required />
               </div>
               <div>
-                <label class="field-label" for="timing">Timing</label>
+                <label class="field-label" for="timing">Timing<span class="req">*</span></label>
                 <input class="field" type="text" id="timing" name="timing" placeholder="Ex: Fall 2026 rollout" required />
               </div>
             </div>
