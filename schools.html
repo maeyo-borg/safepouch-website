@@ -130,6 +130,15 @@
       border-radius: 22px;
     }
 
+    /* Product photos — framed to sit on the dark page */
+    .product-shot {
+      position: relative; overflow: hidden; border-radius: 18px;
+      border: 1px solid rgba(250,250,247,0.10);
+      box-shadow: 0 24px 60px -34px rgba(0,0,0,0.7);
+      background: #f4f4f2;
+    }
+    .product-shot img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
     /* Primary button */
     .btn-primary {
       display: inline-flex; align-items: center; justify-content: center;
@@ -322,17 +331,22 @@
 
   <!-- ============== What you get ============== -->
   <section class="relative py-16 md:py-24">
-    <div class="max-w-3xl mx-auto px-5 md:px-8">
-      <div class="flex items-center gap-3 text-brass-2 mb-4">
-        <span class="text-xs font-bold uppercase tracking-widest">What you get</span>
+    <div class="max-w-5xl mx-auto px-5 md:px-8 grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+      <div>
+        <div class="flex items-center gap-3 text-brass-2 mb-4">
+          <span class="text-xs font-bold uppercase tracking-widest">What you get</span>
+        </div>
+        <h2 class="text-[30px] md:text-[42px] leading-[1.12]">One standard, every classroom.</h2>
+        <ul class="mt-8 space-y-4 text-paper/80 leading-[1.7]">
+          <li class="flex gap-3"><span class="bullet mt-2"></span><span>One <b>SafePouch per student</b>, sized for any modern device.</span></li>
+          <li class="flex gap-3"><span class="bullet mt-2"></span><span><b>Customized to your district or school</b> — pouches in your colors, with your logo or mascot printed on.</span></li>
+          <li class="flex gap-3"><span class="bullet mt-2"></span><span>Unlock bases at <b>every dismissal exit</b>.</span></li>
+          <li class="flex gap-3"><span class="bullet mt-2"></span><span>Roll-out playbook, staff training, and admin dashboard.</span></li>
+        </ul>
       </div>
-      <h2 class="text-[30px] md:text-[42px] leading-[1.12]">One standard, every classroom.</h2>
-      <ul class="mt-8 space-y-4 text-paper/80 leading-[1.7]">
-        <li class="flex gap-3"><span class="bullet mt-2"></span><span>One <b>SafePouch per student</b>, sized for any modern device.</span></li>
-        <li class="flex gap-3"><span class="bullet mt-2"></span><span><b>Customized to your district or school</b> — pouches in your colors, with your logo or mascot printed on.</span></li>
-        <li class="flex gap-3"><span class="bullet mt-2"></span><span>Unlock bases at <b>every dismissal exit</b>.</span></li>
-        <li class="flex gap-3"><span class="bullet mt-2"></span><span>Roll-out playbook, staff training, and admin dashboard.</span></li>
-      </ul>
+      <div class="product-shot aspect-[4/5] max-w-md w-full mx-auto">
+        <img src="images/pouch-front-angled.jpg" alt="A SafePouch printed with a school's branding" loading="lazy" decoding="async" />
+      </div>
     </div>
   </section>
 
@@ -344,32 +358,47 @@
     </div>
 
     <div class="max-w-3xl mx-auto px-5 md:px-8 mt-14 space-y-6">
-      <div class="card p-8 md:p-12">
-        <h3 class="text-2xl md:text-3xl">1. Students lock their devices at the door</h3>
-        <ul class="mt-6 space-y-3 text-paper/75">
-          <li class="flex gap-3"><span class="bullet mt-2"></span>Each student gets a personal SafePouch at the start of the year.</li>
-          <li class="flex gap-3"><span class="bullet mt-2"></span>They power down, drop the device in, and tap the pouch closed at the entrance.</li>
-        </ul>
-        <p class="mt-6 text-paper/70 leading-[1.7]"><span class="text-paper/55">Result:</span> the student keeps possession of their device — but it's <span class="font-bold">locked, silent, and out of sight</span>.</p>
+      <div class="card p-6 md:p-8 grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-center">
+        <div class="product-shot aspect-square">
+          <img src="images/detail-pin-closeup.jpg" alt="SafePouch magnetic locking pin" loading="lazy" decoding="async" />
+        </div>
+        <div>
+          <h3 class="text-2xl md:text-3xl">1. Students lock their devices at the door</h3>
+          <ul class="mt-6 space-y-3 text-paper/75">
+            <li class="flex gap-3"><span class="bullet mt-2"></span>Each student gets a personal SafePouch at the start of the year.</li>
+            <li class="flex gap-3"><span class="bullet mt-2"></span>They power down, drop the device in, and tap the pouch closed at the entrance.</li>
+          </ul>
+          <p class="mt-6 text-paper/70 leading-[1.7]"><span class="text-paper/55">Result:</span> the student keeps possession of their device — but it's <span class="font-bold">locked, silent, and out of sight</span>.</p>
+        </div>
       </div>
 
-      <div class="card p-8 md:p-12">
-        <h3 class="text-2xl md:text-3xl">2. The pouch stays with them all day</h3>
-        <ul class="mt-6 space-y-3 text-paper/75">
-          <li class="flex gap-3"><span class="bullet mt-2"></span>In class, between periods, at lunch — the pouch goes everywhere their device would.</li>
-          <li class="flex gap-3"><span class="bullet mt-2"></span>Emergencies are handled by staff devices and front-office unlock bases.</li>
-          <li class="flex gap-3"><span class="bullet mt-2"></span>No collection bins, no naming-and-shaming, no power struggles in class.</li>
-        </ul>
-        <p class="mt-6 text-paper/70 leading-[1.7]"><span class="text-paper/55">Result:</span> teachers teach, students engage, hallways quiet down.</p>
+      <div class="card p-6 md:p-8 grid md:grid-cols-[1fr_240px] gap-6 md:gap-8 items-center">
+        <div class="md:order-2 product-shot aspect-square">
+          <img src="images/detail-logo.jpg" alt="SafePouch branding printed on the pouch" loading="lazy" decoding="async" />
+        </div>
+        <div class="md:order-1">
+          <h3 class="text-2xl md:text-3xl">2. The pouch stays with them all day</h3>
+          <ul class="mt-6 space-y-3 text-paper/75">
+            <li class="flex gap-3"><span class="bullet mt-2"></span>In class, between periods, at lunch — the pouch goes everywhere their device would.</li>
+            <li class="flex gap-3"><span class="bullet mt-2"></span>Emergencies are handled by staff devices and front-office unlock bases.</li>
+            <li class="flex gap-3"><span class="bullet mt-2"></span>No collection bins, no naming-and-shaming, no power struggles in class.</li>
+          </ul>
+          <p class="mt-6 text-paper/70 leading-[1.7]"><span class="text-paper/55">Result:</span> teachers teach, students engage, hallways quiet down.</p>
+        </div>
       </div>
 
-      <div class="card p-8 md:p-12">
-        <h3 class="text-2xl md:text-3xl">3. Unlock at exit, walk out, done</h3>
-        <ul class="mt-6 space-y-3 text-paper/75">
-          <li class="flex gap-3"><span class="bullet mt-2"></span>SafePouch unlock bases sit at exits or classrooms — students tap to unlock as they leave.</li>
-          <li class="flex gap-3"><span class="bullet mt-2"></span>No counting, no cleanup, no following-up the next morning.</li>
-        </ul>
-        <p class="mt-6 text-paper/70 leading-[1.7]"><span class="text-paper/55">Result:</span> a routine that runs itself by week two.</p>
+      <div class="card p-6 md:p-8 grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-center">
+        <div class="product-shot aspect-square">
+          <img src="images/hero-unlock-base.jpg" alt="SafePouch unlock base at an exit" loading="lazy" decoding="async" />
+        </div>
+        <div>
+          <h3 class="text-2xl md:text-3xl">3. Unlock at exit, walk out, done</h3>
+          <ul class="mt-6 space-y-3 text-paper/75">
+            <li class="flex gap-3"><span class="bullet mt-2"></span>SafePouch unlock bases sit at exits or classrooms — students tap to unlock as they leave.</li>
+            <li class="flex gap-3"><span class="bullet mt-2"></span>No counting, no cleanup, no following-up the next morning.</li>
+          </ul>
+          <p class="mt-6 text-paper/70 leading-[1.7]"><span class="text-paper/55">Result:</span> a routine that runs itself by week two.</p>
+        </div>
       </div>
     </div>
   </section>
