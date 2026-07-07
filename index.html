@@ -218,6 +218,19 @@
     .benefit-card { transition: transform .25s cubic-bezier(.2,.9,.3,1.3), border-color .25s ease; }
     .benefit-card:hover { transform: translateY(-3px); border-color: rgba(184,155,94,0.35); }
 
+    /* Product photos — framed to sit on the dark page */
+    .product-shot {
+      position: relative; overflow: hidden; border-radius: 20px;
+      border: 1px solid rgba(250,250,247,0.10);
+      box-shadow: 0 30px 70px -34px rgba(0,0,0,0.7);
+      background: #f4f4f2;
+    }
+    .product-shot img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .product-figure { transition: transform .3s cubic-bezier(.2,.9,.3,1.3); }
+    .product-figure:hover { transform: translateY(-4px); }
+    .product-figure:hover .product-shot { border-color: rgba(184,155,94,0.40); }
+    .product-figure figcaption .cap-title { color: var(--paper); font-weight: 700; }
+
     /* Primary button — brass-filled, the single sustained accent */
     .btn-primary {
       display: inline-flex; align-items: center; justify-content: center;
@@ -622,6 +635,73 @@
           <li class="flex gap-3"><span class="bullet mt-2"></span>No counting, no cleanup, no following-up afterward.</li>
         </ul>
         <p class="mt-6 text-paper/70 leading-[1.7]"><span class="text-paper/55">Result:</span> a routine that runs itself, every day and every show.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== The pouch (product) ============== -->
+  <section id="product" class="relative scroll-mt-28 py-20 md:py-28 grain">
+    <div class="max-w-6xl mx-auto px-5 md:px-8">
+      <div class="max-w-2xl mx-auto text-center">
+        <div class="text-xs font-bold uppercase tracking-[0.2em] text-brass-2">The hardware</div>
+        <h2 class="mt-4 text-[34px] md:text-[50px] leading-[1.08]">Built to lock. Made to last.</h2>
+        <p class="mt-5 text-paper/65 leading-[1.75]">
+          A rugged, reusable pouch and a magnetic locking system — the same tap-to-lock hardware trusted in classrooms and at sold-out shows.
+        </p>
+      </div>
+
+      <!-- Feature: hero shot + points -->
+      <div class="mt-14 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div class="product-shot aspect-[4/5]">
+          <img src="images/pouch-front-angled.jpg" alt="The SafePouch locking pouch with logo" loading="lazy" decoding="async" />
+        </div>
+        <div>
+          <h3 class="text-2xl md:text-3xl">One pouch, every device</h3>
+          <p class="mt-4 text-paper/70 leading-[1.7]">
+            Ballistic-style nylon that takes a beating — from backpacks to mosh pits. The device drops in, the pouch taps shut, and it stays <span class="text-paper font-semibold">locked, silent, and out of sight</span> until it's tapped open again.
+          </p>
+          <ul class="mt-6 space-y-3 text-paper/75">
+            <li class="flex gap-3"><span class="bullet mt-2"></span>Fits any modern phone, up to the largest models.</li>
+            <li class="flex gap-3"><span class="bullet mt-2"></span>Magnetic lock — no zippers to jam, no batteries to charge.</li>
+            <li class="flex gap-3"><span class="bullet mt-2"></span>Reusable year after year, show after show.</li>
+          </ul>
+          <div class="mt-8">
+            <a href="contact.html" class="btn-primary">Contact Us</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Detail cards -->
+      <div class="mt-6 grid sm:grid-cols-3 gap-5">
+        <figure class="product-figure">
+          <div class="product-shot aspect-square">
+            <img src="images/detail-pin-closeup.jpg" alt="SafePouch magnetic locking pin" loading="lazy" decoding="async" />
+          </div>
+          <figcaption class="mt-4">
+            <div class="cap-title">Tap-to-lock magnet</div>
+            <p class="mt-1.5 text-sm text-paper/65 leading-[1.6]">The magnetic pin snaps shut with a tap and only releases on an unlock base.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="product-figure">
+          <div class="product-shot aspect-square">
+            <img src="images/hero-unlock-base.jpg" alt="SafePouch unlock base" loading="lazy" decoding="async" />
+          </div>
+          <figcaption class="mt-4">
+            <div class="cap-title">Unlock in a second</div>
+            <p class="mt-1.5 text-sm text-paper/65 leading-[1.6]">Bases at the exits release every pouch instantly — no keys, no apps, no lines.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="product-figure">
+          <div class="product-shot aspect-square">
+            <img src="images/hero-pouch-back.jpg" alt="SafePouch with a blank label for custom branding" loading="lazy" decoding="async" />
+          </div>
+          <figcaption class="mt-4">
+            <div class="cap-title">Made yours</div>
+            <p class="mt-1.5 text-sm text-paper/65 leading-[1.6]">Print your school or venue logo, colors, or mascot right on the pouch.</p>
+          </figcaption>
+        </figure>
       </div>
     </div>
   </section>
