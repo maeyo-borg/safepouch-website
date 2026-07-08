@@ -139,6 +139,36 @@
     }
     .product-shot img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
+    /* ===== Scroll reveal ===== */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity .75s cubic-bezier(.2,.7,.2,1), transform .75s cubic-bezier(.2,.7,.2,1);
+      transition-delay: var(--d, 0s); will-change: opacity, transform;
+    }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ===== Continuous float ===== */
+    .floaty  { animation: floaty 7s ease-in-out infinite; }
+    .floaty-2 { animation: floaty 9s ease-in-out infinite; }
+    @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+
+    /* ===== Feature image cluster: main shot + floating inset ===== */
+    .shot-cluster { position: relative; }
+    .shot-inset {
+      position: absolute; width: 46%; right: -6%; bottom: -8%; z-index: 2;
+      border-radius: 14px; overflow: hidden;
+      border: 4px solid var(--black);
+      box-shadow: 0 26px 50px -22px rgba(0,0,0,0.9);
+      background: #f4f4f2;
+    }
+    .shot-inset.at-left { left: -6%; right: auto; }
+    .shot-inset img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .floaty, .floaty-2 { animation: none; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
     /* Primary button */
     .btn-primary {
       display: inline-flex; align-items: center; justify-content: center;
@@ -332,7 +362,7 @@
   <!-- ============== What you get ============== -->
   <section class="relative py-16 md:py-24">
     <div class="max-w-5xl mx-auto px-5 md:px-8 grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-      <div>
+      <div class="reveal">
         <div class="flex items-center gap-3 text-brass-2 mb-4">
           <span class="text-xs font-bold uppercase tracking-widest">What you get</span>
         </div>
@@ -344,8 +374,13 @@
           <li class="flex gap-3"><span class="bullet mt-2"></span><span>Roll-out playbook, staff training, and admin dashboard.</span></li>
         </ul>
       </div>
-      <div class="product-shot aspect-[4/5] max-w-md w-full mx-auto">
-        <img src="images/pouch-front-angled.jpg" alt="A SafePouch printed with a school's branding" loading="lazy" decoding="async" />
+      <div class="reveal shot-cluster max-w-md w-full mx-auto">
+        <div class="product-shot aspect-[4/5]">
+          <img src="images/pouch-front-angled.jpg" alt="A SafePouch printed with a school's branding" loading="lazy" decoding="async" />
+        </div>
+        <div class="shot-inset at-left aspect-square floaty">
+          <img src="images/pouch-back-angled.jpg" alt="The back of a SafePouch with a blank label to customize" loading="lazy" decoding="async" />
+        </div>
       </div>
     </div>
   </section>
@@ -358,9 +393,9 @@
     </div>
 
     <div class="max-w-3xl mx-auto px-5 md:px-8 mt-14 space-y-6">
-      <div class="card p-6 md:p-8 grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-center">
+      <div class="reveal card p-6 md:p-8 grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-center">
         <div class="product-shot aspect-square">
-          <img src="images/detail-pin-closeup.jpg" alt="SafePouch magnetic locking pin" loading="lazy" decoding="async" />
+          <img src="images/detail-locking-pin.jpg" alt="SafePouch magnetic locking pin" loading="lazy" decoding="async" />
         </div>
         <div>
           <h3 class="text-2xl md:text-3xl">1. Students lock their devices at the door</h3>
@@ -372,7 +407,7 @@
         </div>
       </div>
 
-      <div class="card p-6 md:p-8 grid md:grid-cols-[1fr_240px] gap-6 md:gap-8 items-center">
+      <div class="reveal card p-6 md:p-8 grid md:grid-cols-[1fr_240px] gap-6 md:gap-8 items-center">
         <div class="md:order-2 product-shot aspect-square">
           <img src="images/detail-logo.jpg" alt="SafePouch branding printed on the pouch" loading="lazy" decoding="async" />
         </div>
@@ -387,9 +422,9 @@
         </div>
       </div>
 
-      <div class="card p-6 md:p-8 grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-center">
+      <div class="reveal card p-6 md:p-8 grid md:grid-cols-[240px_1fr] gap-6 md:gap-8 items-center">
         <div class="product-shot aspect-square">
-          <img src="images/hero-unlock-base.jpg" alt="SafePouch unlock base at an exit" loading="lazy" decoding="async" />
+          <img src="images/base-angled-clean.jpg" alt="SafePouch unlock base at an exit" loading="lazy" decoding="async" />
         </div>
         <div>
           <h3 class="text-2xl md:text-3xl">3. Unlock at exit, walk out, done</h3>
@@ -474,6 +509,24 @@
       if(closeBtn) closeBtn.addEventListener('click', closeMenu);
       menu.addEventListener('click', function(e){ if(e.target === menu || e.target.closest('a')) closeMenu(); });
       document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMenu(); });
+    })();
+  </script>
+
+  <!-- Scroll reveal -->
+  <script>
+    (function(){
+      var els = document.querySelectorAll('.reveal');
+      if(!els.length) return;
+      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)){
+        els.forEach(function(e){ e.classList.add('in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      els.forEach(function(e){ io.observe(e); });
     })();
   </script>
 </body>
