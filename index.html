@@ -281,15 +281,20 @@
       animation: scFloatB 8s ease-in-out infinite;
     }
     .sc-piece img { display: block; width: 100%; height: auto; }
-    /* "your logo here" label placed on the pouch, above the nametag patch */
+    /* "your logo here" label hanging to the side, with a dashed leader to the patch */
     .sc-tag {
-      position: absolute; z-index: 6;
-      left: 47%; top: 60%; transform: translate(-50%, -50%);
+      z-index: 6; right: 3%; bottom: 12%;
       white-space: nowrap;
-      padding: 6px 12px; border-radius: 9999px;
+      padding: 6px 11px; border-radius: 9999px;
       background: var(--brass-2); color: var(--black);
-      font-size: 11px; font-weight: 800; letter-spacing: 0.01em;
-      box-shadow: 0 10px 24px -10px rgba(0,0,0,0.75);
+      font-size: 11.5px; font-weight: 800; letter-spacing: 0.01em;
+      box-shadow: 0 14px 30px -12px rgba(184,155,94,0.8);
+      animation: scFloatA 9s ease-in-out infinite;
+    }
+    .sc-tag::before {
+      content: ''; position: absolute; left: -30px; top: 46%;
+      width: 34px; border-top: 1.5px dashed rgba(184,155,94,0.85);
+      transform: rotate(-20deg); transform-origin: right center;
     }
     @keyframes scFloatA {
       0%,100% { translate: 0 0; } 50% { translate: 0 -10px; }
@@ -653,11 +658,12 @@
             <div class="sc-piece sc-pouch-front">
               <img src="images/pouch-cutout-front.webp" alt="The SafePouch locking pouch, branded" loading="lazy" decoding="async" />
             </div>
-            <!-- back blank-label pouch with a "your logo here" label above the nametag -->
+            <!-- back blank-label pouch -->
             <div class="sc-piece sc-pouch-back">
               <img src="images/pouch-cutout-back.webp" alt="SafePouch back with a blank label for custom branding" loading="lazy" decoding="async" />
-              <div class="sc-tag">Your logo here</div>
             </div>
+            <!-- pointer tag hanging to the side -->
+            <div class="sc-piece sc-tag">Your logo here</div>
           </div>
         </div>
 
