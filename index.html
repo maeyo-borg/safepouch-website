@@ -170,7 +170,7 @@
     @media (prefers-reduced-motion: reduce) {
       .hero-slide { animation: none; transform: scale(1.04); }
       .hero-slide:nth-child(1) { opacity: 1; }
-      .sc-pouch-front, .sc-pouch-back, .sc-chip, .sc-tag { animation: none; }
+      .sc-pouch-front, .sc-pouch-back, .sc-tag { animation: none; }
     }
 
     /* Ticker badge */
@@ -281,31 +281,15 @@
       animation: scFloatB 8s ease-in-out infinite;
     }
     .sc-piece img { display: block; width: 100%; height: auto; }
-    /* floating chips */
-    .sc-chip {
-      z-index: 5; display: inline-flex; align-items: center; gap: 7px;
-      padding: 8px 13px; border-radius: 9999px;
-      background: rgba(16,16,18,0.82); backdrop-filter: blur(8px);
-      border: 1px solid rgba(184,155,94,0.42);
-      font-size: 12px; font-weight: 700; letter-spacing: 0.01em; color: var(--paper);
-      box-shadow: 0 16px 34px -14px rgba(0,0,0,0.8);
-    }
-    .sc-chip svg { width: 15px; height: 15px; color: var(--brass-2); }
-    .sc-chip-brand { top: 5%; right: 4%; animation: scFloatB 8.5s ease-in-out infinite; }
-    /* dashed pointer + label to the blank patch */
+    /* "your logo here" label placed on the pouch, above the nametag patch */
     .sc-tag {
-      z-index: 6; right: 3%; bottom: -2%;
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 6px 11px; border-radius: 9999px;
+      position: absolute; z-index: 6;
+      left: 47%; top: 60%; transform: translate(-50%, -50%);
+      white-space: nowrap;
+      padding: 6px 12px; border-radius: 9999px;
       background: var(--brass-2); color: var(--black);
-      font-size: 11.5px; font-weight: 800; letter-spacing: 0.01em;
-      box-shadow: 0 14px 30px -12px rgba(184,155,94,0.8);
-      animation: scFloatA 9s ease-in-out infinite;
-    }
-    .sc-tag::before {
-      content: ''; position: absolute; left: -30px; top: 46%;
-      width: 34px; border-top: 1.5px dashed rgba(184,155,94,0.85);
-      transform: rotate(-20deg); transform-origin: right center;
+      font-size: 11px; font-weight: 800; letter-spacing: 0.01em;
+      box-shadow: 0 10px 24px -10px rgba(0,0,0,0.75);
     }
     @keyframes scFloatA {
       0%,100% { translate: 0 0; } 50% { translate: 0 -10px; }
@@ -319,10 +303,7 @@
       .sc-card { left: 1%; top: 12%; width: 50%; }
       .sc-pouch-front { right: 1%; top: 6%; width: 58%; }
       .sc-pouch-back { left: 29%; bottom: -1%; width: 34%; }
-      .sc-chip { font-size: 10.5px; padding: 5px 9px; }
-      .sc-chip svg { width: 13px; height: 13px; }
-      .sc-chip-brand { top: 2%; right: 1%; }
-      .sc-tag { right: 5%; bottom: 3%; font-size: 10.5px; }
+      .sc-tag { font-size: 10px; padding: 5px 9px; }
     }
 
     /* Primary button — brass-filled, the single sustained accent */
@@ -668,21 +649,15 @@
               <img src="images/crowd-no-phones.jpg" alt="A packed crowd, present in the moment" loading="lazy" decoding="async" />
               <figcaption class="sc-card-tag">Phones away</figcaption>
             </figure>
-            <!-- floating chip -->
-            <div class="sc-piece sc-chip sc-chip-brand">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5 5.5.8-4 3.9.95 5.5L12 21l-4.9-2.6L8 12.7 4 8.8 9.5 8z"/></svg>
-              Made to last
-            </div>
             <!-- front branded pouch (hero) -->
             <div class="sc-piece sc-pouch-front">
               <img src="images/pouch-cutout-front.webp" alt="The SafePouch locking pouch, branded" loading="lazy" decoding="async" />
             </div>
-            <!-- back blank-label pouch -->
+            <!-- back blank-label pouch with a "your logo here" label above the nametag -->
             <div class="sc-piece sc-pouch-back">
               <img src="images/pouch-cutout-back.webp" alt="SafePouch back with a blank label for custom branding" loading="lazy" decoding="async" />
+              <div class="sc-tag">Your logo here</div>
             </div>
-            <!-- pointer tag -->
-            <div class="sc-piece sc-tag">Your logo here</div>
           </div>
         </div>
 
