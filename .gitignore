@@ -11,3 +11,10 @@ node_modules/
 # Local dev + working files — not part of the deployed site
 temporary screenshots/
 www.yeldra.com_.png
+
+# Raw camera / photo-edit dumps — only optimized copies in images/ ship
+safepouch-web-photos/
+safepouch-web-photos 2/
+_preview.html
+_p_*.html
+_prev_*.html
