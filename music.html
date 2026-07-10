@@ -240,14 +240,14 @@
 
   <!-- ============== HEADER ============== -->
   <header class="fixed top-0 left-0 right-0 z-50">
-    <div class="max-w-7xl mx-auto px-5 md:px-8 py-6 grid grid-cols-3 items-center">
+    <div class="max-w-7xl mx-auto px-5 md:px-8 py-6 grid grid-cols-[1fr_auto_1fr] items-center">
       <!-- mobile menu button -->
       <button id="navToggle" type="button" class="nav-toggle md:hidden flex items-center justify-self-start text-paper" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
       </button>
 
       <!-- left nav -->
-      <nav class="hidden md:flex items-center gap-8">
+      <nav class="hidden md:flex items-center justify-self-end gap-7 pr-8">
         <a href="about.html" class="nav-link text-[13px] font-semibold uppercase tracking-[0.12em] whitespace-nowrap">Our Story</a>
         <a href="index.html#how" class="nav-link text-[13px] font-semibold uppercase tracking-[0.12em] whitespace-nowrap">How it works</a>
         <a href="index.html#spaces" class="nav-link text-[13px] font-semibold uppercase tracking-[0.12em] whitespace-nowrap">Device-free spaces</a>
@@ -255,12 +255,12 @@
 
       <!-- centered logo + tagline -->
       <a href="index.html" class="flex flex-col items-center justify-center" aria-label="SafePouch home">
-        <img src="BRAND_ASSETS/Trans.png" alt="SafePouch" class="sp-logo-reverse h-10 md:h-14 w-auto" />
-        <span class="mt-1.5 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] text-brass-2">Devices Away. Attention Back.</span>
+        <img src="BRAND_ASSETS/Trans.png" alt="SafePouch" class="sp-logo-reverse h-12 md:h-16 w-auto" />
+        <span class="mt-2 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] text-brass-2">Devices Away. Attention Back.</span>
       </a>
 
       <!-- right nav -->
-      <nav class="hidden md:flex items-center justify-end gap-7">
+      <nav class="hidden md:flex items-center justify-self-start gap-7 pl-8">
         <a href="schools.html" class="nav-link text-[13px] font-semibold uppercase tracking-[0.12em] whitespace-nowrap">Schools</a>
         <a href="music.html" class="nav-link text-[13px] font-semibold uppercase tracking-[0.12em] whitespace-nowrap">Music</a>
         <a href="contact.html" class="btn-primary-sm">Contact Us</a>
