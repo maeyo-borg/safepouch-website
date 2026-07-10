@@ -322,6 +322,29 @@
     .floaty-2 { animation: floaty 9s ease-in-out infinite; }
     @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 
+    /* ===== Animated step illustrations (brand-colored flat art) ===== */
+    .illus {
+      position: relative; border-radius: 18px; overflow: hidden;
+      background: radial-gradient(135% 120% at 50% 0%, #fbfaf7, #e7e4dc);
+      border: 1px solid rgba(10,10,11,0.07);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 24px 60px -36px rgba(0,0,0,0.7);
+    }
+    .illus svg { display: block; width: 100%; height: 100%; }
+    .illus .ph     { animation: slotIn 3.8s ease-in-out infinite; }
+    .illus .ring   { transform-box: fill-box; transform-origin: center; animation: ripple 2.8s ease-out infinite; }
+    .illus .ring2  { animation-delay: 1.4s; }
+    .illus .snapP  { transform-box: fill-box; transform-origin: center; animation: snapPulse 2.8s ease-in-out infinite; }
+    .illus .tap    { animation: tapBase 3s ease-in-out infinite; }
+    .illus .arrow  { animation: arrowBob 3s ease-in-out infinite; }
+    .illus .glow   { transform-box: fill-box; transform-origin: center; animation: baseGlow 3s ease-in-out infinite; }
+    @keyframes slotIn  { 0%{transform:translateY(-20px);opacity:0} 18%{opacity:1} 46%{transform:translateY(0)} 84%{transform:translateY(0);opacity:1} 100%{transform:translateY(0);opacity:0} }
+    @keyframes ripple  { 0%{transform:scale(.5);opacity:.85} 100%{transform:scale(3);opacity:0} }
+    @keyframes snapPulse { 0%,100%{transform:scale(1)} 12%{transform:scale(.8)} 32%{transform:scale(1)} }
+    @keyframes tapBase { 0%,100%{transform:translateY(-18px)} 46%,56%{transform:translateY(0)} }
+    @keyframes arrowBob { 0%,100%{transform:translateY(-4px)} 50%{transform:translateY(4px)} }
+    @keyframes baseGlow { 0%,42%{opacity:0} 52%{opacity:.8} 72%{opacity:0} 100%{opacity:0} }
+    @media (prefers-reduced-motion: reduce) { .illus * { animation: none !important; } .illus .ph { opacity: 1; transform: none; } }
+
     /* ===== Feature image cluster: main shot + floating inset ===== */
     .shot-cluster { position: relative; }
     .shot-inset {
@@ -348,6 +371,28 @@
     @media (min-width: 768px) { .pouch-float img { height: 500px; } }
     .pouch-float.is-base img { height: 320px; }
     @media (min-width: 768px) { .pouch-float.is-base img { height: 420px; } }
+
+    /* ===== "Make it yours" branded pouch ===== */
+    .brand-stage { position: relative; display: flex; align-items: center; justify-content: center; padding: 1.5rem 0; }
+    .brand-stage .pouch-glow {
+      position: absolute; width: 66%; height: 70%; border-radius: 9999px;
+      background: radial-gradient(closest-side, rgba(184,155,94,0.24), rgba(184,155,94,0) 72%);
+      filter: blur(10px); pointer-events: none;
+    }
+    .brand-pouch { position: relative; z-index: 1; }
+    .brand-pouch img {
+      display: block; width: auto; height: 380px;
+      filter: drop-shadow(0 42px 46px rgba(0,0,0,0.55));
+    }
+    @media (min-width: 768px) { .brand-pouch img { height: 500px; } }
+    .brand-badge {
+      position: absolute; z-index: 3; left: 50%; top: 41%; transform: translate(-50%, -50%);
+      white-space: nowrap; padding: 8px 15px; border-radius: 9999px;
+      background: var(--brass-2); color: var(--black);
+      font-size: 13px; font-weight: 800; letter-spacing: 0.01em;
+      box-shadow: 0 14px 30px -12px rgba(0,0,0,0.8);
+    }
+    @media (prefers-reduced-motion: reduce) { .brand-pouch img { animation: none; } }
 
     @media (prefers-reduced-motion: reduce) {
       .floaty, .floaty-2 { animation: none; }
@@ -727,7 +772,7 @@
       <div class="reveal mt-14 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         <div class="pouch-float">
           <div class="pouch-glow"></div>
-          <img src="images/pouch-hero-cut.webp" alt="The SafePouch locking pouch" class="floaty" loading="lazy" decoding="async" />
+          <img src="images/pouch-cutout-back.webp" alt="The SafePouch locking pouch" class="floaty" loading="lazy" decoding="async" />
         </div>
         <div>
           <h3 class="text-2xl md:text-3xl">One pouch, every device</h3>
@@ -782,6 +827,32 @@
         </div>
       </div>
 
+      <!-- Feature: make it yours -->
+      <div class="reveal mt-16 md:mt-24 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div class="lg:order-2 brand-stage">
+          <div class="pouch-glow"></div>
+          <div class="brand-pouch">
+            <img src="images/pouch-cutout-back.webp" alt="A SafePouch customized with a school or venue logo" class="floaty" loading="lazy" decoding="async" />
+            <div class="brand-badge">Your logo here</div>
+          </div>
+        </div>
+        <div class="lg:order-1">
+          <div class="text-xs font-bold uppercase tracking-[0.2em] text-brass-2">Make it yours</div>
+          <h3 class="mt-3 text-2xl md:text-3xl">Your logo, mascot, and colors</h3>
+          <p class="mt-4 text-paper/70 leading-[1.7]">
+            Every SafePouch can be built to match your school or venue. Print your <span class="text-paper font-semibold">logo or mascot</span> right on the pouch, and pick the <span class="text-paper font-semibold">colors</span> that fit your brand — so it looks like it belongs to you, not a rental.
+          </p>
+          <ul class="mt-6 space-y-3 text-paper/75">
+            <li class="flex gap-3"><span class="bullet mt-2"></span>Custom logo or mascot printed on every pouch.</li>
+            <li class="flex gap-3"><span class="bullet mt-2"></span>Choose your pouch colors to match school or brand identity.</li>
+            <li class="flex gap-3"><span class="bullet mt-2"></span>A dedicated name-label panel for student or guest ID.</li>
+          </ul>
+          <div class="mt-8">
+            <a href="contact.html" class="btn-primary">Get a custom quote</a>
+          </div>
+        </div>
+      </div>
+
       <!-- Detail cards -->
       <div class="mt-16 md:mt-24 grid sm:grid-cols-3 gap-5">
         <figure class="reveal product-figure" style="--d:.05s">
@@ -806,11 +877,11 @@
 
         <figure class="reveal product-figure" style="--d:.25s">
           <div class="product-shot aspect-square">
-            <img src="images/hero-pouch-back.jpg" alt="SafePouch with a blank label for custom branding" loading="lazy" decoding="async" />
+            <img src="images/pouch-front-flat.jpg" alt="SafePouch rugged nylon build" loading="lazy" decoding="async" />
           </div>
           <figcaption class="mt-4">
-            <div class="cap-title">Made yours</div>
-            <p class="mt-1.5 text-sm text-paper/65 leading-[1.6]">Print your school or venue logo, colors, or mascot right on the pouch.</p>
+            <div class="cap-title">Built to last</div>
+            <p class="mt-1.5 text-sm text-paper/65 leading-[1.6]">Ballistic-style nylon and reinforced stitching — reusable year after year, show after show.</p>
           </figcaption>
         </figure>
       </div>
@@ -880,36 +951,97 @@
     </div>
 
     <div class="max-w-3xl mx-auto px-5 md:px-8 mt-16 space-y-6">
-      <div class="card p-8 md:p-12">
-        <div class="step-num text-[64px] leading-none">0<em>1</em>.</div>
-        <h3 class="mt-6 text-2xl md:text-3xl">Lock devices at the door</h3>
-        <ul class="mt-6 space-y-3 text-paper/75">
-          <li class="flex gap-3"><span class="bullet mt-2"></span>Everyone gets a SafePouch on the way in — students at the start of the year, guests as they arrive at the venue.</li>
-          <li class="flex gap-3"><span class="bullet mt-2"></span>They power down, drop the device in, and tap the pouch closed at the entrance.</li>
-        </ul>
-        <p class="mt-6 text-paper/70 leading-[1.7]"><span class="text-paper/55">Result:</span> people keep their own device — but it's <span class="font-bold">locked, silent, and out of sight</span>.</p>
+      <div class="card p-6 md:p-10 grid md:grid-cols-[240px_1fr] gap-6 md:gap-10 items-center">
+        <div class="illus aspect-square">
+          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dropping a phone into a SafePouch">
+            <g class="ph">
+              <rect x="82" y="12" width="36" height="82" rx="8" fill="#d7d7db"/>
+              <rect x="86" y="18" width="28" height="70" rx="4" fill="#26262d"/>
+              <rect x="91" y="25" width="18" height="5" rx="2.5" fill="#B89B5E"/>
+            </g>
+            <rect x="62" y="46" width="76" height="134" rx="20" fill="#27272e"/>
+            <rect x="66" y="50" width="68" height="126" rx="16" fill="#17171c"/>
+            <path d="M66 66 Q66 50 82 50 L118 50 Q134 50 134 66 L134 94 L66 94 Z" fill="#1f1f27"/>
+            <line x1="66" y1="94" x2="134" y2="94" stroke="#0e0e12" stroke-width="2"/>
+            <circle cx="100" cy="70" r="8.5" fill="#B89B5E"/>
+            <circle cx="100" cy="70" r="3" fill="#171912"/>
+            <rect x="85" y="150" width="30" height="12" rx="2.5" fill="#FAFAF7"/>
+          </svg>
+        </div>
+        <div>
+          <div class="step-num text-[56px] md:text-[64px] leading-none">0<em>1</em>.</div>
+          <h3 class="mt-4 text-2xl md:text-3xl">Lock devices at the door</h3>
+          <ul class="mt-6 space-y-3 text-paper/75">
+            <li class="flex gap-3"><span class="bullet mt-2"></span>Everyone gets a SafePouch on the way in — students at the start of the year, guests as they arrive at the venue.</li>
+            <li class="flex gap-3"><span class="bullet mt-2"></span>They power down, drop the device in, and tap the pouch closed at the entrance.</li>
+          </ul>
+          <p class="mt-6 text-paper/70 leading-[1.7]"><span class="text-paper/55">Result:</span> people keep their own device — but it's <span class="font-bold">locked, silent, and out of sight</span>.</p>
+        </div>
       </div>
 
-      <div class="card p-8 md:p-12">
-        <div class="step-num text-[64px] leading-none">0<em>2</em>.</div>
-        <h3 class="mt-6 text-2xl md:text-3xl">The pouch stays with them the whole time</h3>
-        <ul class="mt-6 space-y-3 text-paper/75">
-          <li class="flex gap-3"><span class="bullet mt-2"></span>The pouch goes everywhere the device would — classroom to classroom, or floor to bar to merch table.</li>
-          <li class="flex gap-3"><span class="bullet mt-2"></span>Emergencies are covered by staff devices and unlock stations on site.</li>
-          <li class="flex gap-3"><span class="bullet mt-2"></span>No collection bins, no confiscation, no power struggles.</li>
-        </ul>
-        <p class="mt-6 text-paper/70 leading-[1.7]"><span class="text-paper/55">Result:</span> classrooms stay focused and crowds stay present.</p>
+      <div class="card p-6 md:p-10 grid md:grid-cols-[1fr_240px] gap-6 md:gap-10 items-center">
+        <div class="md:order-2 illus aspect-square">
+          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tapping a SafePouch closed to lock it">
+            <rect x="62" y="46" width="76" height="134" rx="20" fill="#27272e"/>
+            <rect x="66" y="50" width="68" height="126" rx="16" fill="#17171c"/>
+            <path d="M66 66 Q66 50 82 50 L118 50 Q134 50 134 66 L134 94 L66 94 Z" fill="#1f1f27"/>
+            <line x1="66" y1="94" x2="134" y2="94" stroke="#0e0e12" stroke-width="2"/>
+            <rect x="85" y="150" width="30" height="12" rx="2.5" fill="#FAFAF7"/>
+            <circle class="ring" cx="100" cy="70" r="8.5" fill="none" stroke="#B89B5E" stroke-width="2.4"/>
+            <circle class="ring ring2" cx="100" cy="70" r="8.5" fill="none" stroke="#B89B5E" stroke-width="2.4"/>
+            <g class="snapP">
+              <circle cx="100" cy="70" r="8.5" fill="#B89B5E"/>
+              <circle cx="100" cy="70" r="3" fill="#171912"/>
+            </g>
+          </svg>
+        </div>
+        <div class="md:order-1">
+          <div class="step-num text-[56px] md:text-[64px] leading-none">0<em>2</em>.</div>
+          <h3 class="mt-4 text-2xl md:text-3xl">The pouch stays with them the whole time</h3>
+          <ul class="mt-6 space-y-3 text-paper/75">
+            <li class="flex gap-3"><span class="bullet mt-2"></span>The pouch goes everywhere the device would — classroom to classroom, or floor to bar to merch table.</li>
+            <li class="flex gap-3"><span class="bullet mt-2"></span>Emergencies are covered by staff devices and unlock stations on site.</li>
+            <li class="flex gap-3"><span class="bullet mt-2"></span>No collection bins, no confiscation, no power struggles.</li>
+          </ul>
+          <p class="mt-6 text-paper/70 leading-[1.7]"><span class="text-paper/55">Result:</span> classrooms stay focused and crowds stay present.</p>
+        </div>
       </div>
 
-      <div class="card p-8 md:p-12">
-        <div class="step-num text-[64px] leading-none">0<em>3</em>.</div>
-        <h3 class="mt-6 text-2xl md:text-3xl">Unlock on the way out</h3>
-        <ul class="mt-6 space-y-3 text-paper/75">
-          <li class="flex gap-3"><span class="bullet mt-2"></span>Unlock bases sit at the exits — students tap as they leave for the day, guests as the show ends.</li>
-          <li class="flex gap-3"><span class="bullet mt-2"></span>For schools, add bases at every dismissal door; for events, at the entrance and exit only.</li>
-          <li class="flex gap-3"><span class="bullet mt-2"></span>No counting, no cleanup, no following-up afterward.</li>
-        </ul>
-        <p class="mt-6 text-paper/70 leading-[1.7]"><span class="text-paper/55">Result:</span> a routine that runs itself, every day and every show.</p>
+      <div class="card p-6 md:p-10 grid md:grid-cols-[240px_1fr] gap-6 md:gap-10 items-center">
+        <div class="illus aspect-square">
+          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tapping a SafePouch on a base to unlock it">
+            <rect x="60" y="150" width="68" height="40" rx="13" fill="#141418"/>
+            <rect x="60" y="142" width="68" height="40" rx="13" fill="#23232b"/>
+            <ellipse class="glow" cx="94" cy="161" rx="22" ry="15" fill="#B89B5E"/>
+            <circle cx="94" cy="161" r="11" fill="#B89B5E"/>
+            <circle cx="94" cy="161" r="4" fill="#1a1a12"/>
+            <g class="tap">
+              <g transform="rotate(-16 112 82)">
+                <rect x="89" y="40" width="48" height="88" rx="14" fill="#27272e"/>
+                <rect x="92" y="43" width="42" height="82" rx="12" fill="#17171c"/>
+                <path d="M92 57 Q92 43 105 43 L121 43 Q134 43 134 57 L134 76 L92 76 Z" fill="#1f1f27"/>
+                <line x1="92" y1="76" x2="134" y2="76" stroke="#0e0e12" stroke-width="1.8"/>
+                <circle cx="113" cy="61" r="6.5" fill="#B89B5E"/>
+                <circle cx="113" cy="61" r="2.3" fill="#171912"/>
+                <rect x="103" y="104" width="20" height="9" rx="2" fill="#FAFAF7"/>
+              </g>
+            </g>
+            <g class="arrow">
+              <path d="M156 54 q30 22 12 60" fill="none" stroke="#B89B5E" stroke-width="4.5" stroke-linecap="round"/>
+              <path d="M156 100 l12 15 15 -8" fill="none" stroke="#B89B5E" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+          </svg>
+        </div>
+        <div>
+          <div class="step-num text-[56px] md:text-[64px] leading-none">0<em>3</em>.</div>
+          <h3 class="mt-4 text-2xl md:text-3xl">Unlock on the way out</h3>
+          <ul class="mt-6 space-y-3 text-paper/75">
+            <li class="flex gap-3"><span class="bullet mt-2"></span>Unlock bases sit at the exits — students tap as they leave for the day, guests as the show ends.</li>
+            <li class="flex gap-3"><span class="bullet mt-2"></span>For schools, add bases at every dismissal door; for events, at the entrance and exit only.</li>
+            <li class="flex gap-3"><span class="bullet mt-2"></span>No counting, no cleanup, no following-up afterward.</li>
+          </ul>
+          <p class="mt-6 text-paper/70 leading-[1.7]"><span class="text-paper/55">Result:</span> a routine that runs itself, every day and every show.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1006,6 +1138,107 @@
     </div>
   </section>
 
+  <!-- ============== FAQ ============== -->
+  <style>
+    .faq-item {
+      border: 1px solid rgba(250,250,247,0.10); border-radius: 16px;
+      background: linear-gradient(180deg, rgba(250,250,247,0.025), rgba(250,250,247,0.008));
+      transition: border-color .3s ease, background .3s ease;
+    }
+    .faq-item + .faq-item { margin-top: 12px; }
+    .faq-item[open] { border-color: rgba(184,155,94,0.35); background: linear-gradient(180deg, rgba(184,155,94,0.06), rgba(250,250,247,0.008)); }
+    .faq-item summary {
+      list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 18px;
+      padding: 20px 22px; font-family: 'Manrope','Articulat CF',Inter,system-ui,sans-serif; font-weight: 700;
+      font-size: 16.5px; line-height: 1.35; color: var(--paper); transition: color .2s ease;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary:hover { color: var(--brass-3); }
+    .faq-item summary:focus-visible { outline: 2px solid var(--brass-2); outline-offset: 3px; border-radius: 12px; }
+    .faq-ico { flex-shrink: 0; width: 20px; height: 20px; color: var(--brass-2); transition: transform .3s cubic-bezier(.2,.9,.3,1.3); }
+    .faq-item[open] .faq-ico { transform: rotate(45deg); }
+    .faq-a { padding: 0 22px 22px; color: rgba(250,250,247,0.68); line-height: 1.72; max-width: 64ch; }
+    @media (prefers-reduced-motion: reduce) { .faq-ico { transition: none; } }
+  </style>
+  <section id="faq" class="relative scroll-mt-28 py-20 md:py-28 grain">
+    <div class="max-w-3xl mx-auto px-5 md:px-8">
+      <div class="reveal max-w-2xl mx-auto text-center">
+        <div class="text-xs font-bold uppercase tracking-[0.2em] text-brass-2">FAQ</div>
+        <h2 class="mt-4 text-[34px] md:text-[50px] leading-[1.08]">Questions, answered</h2>
+        <p class="mt-5 text-paper/65 leading-[1.75]">Everything schools, districts, and venues ask before they roll out SafePouch. Still curious? <a href="contact.html" class="text-brass-2 font-semibold nav-link">Get in touch</a>.</p>
+      </div>
+
+      <div class="reveal mt-12">
+        <details class="faq-item" open>
+          <summary>Do students and guests keep their own phones?
+            <svg class="faq-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </summary>
+          <div class="faq-a">Yes. Everyone keeps their own device the entire time — SafePouch simply locks it so it can't be used. No collection bins, no confiscation, and nothing for staff to store, label, or hand back.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Can the phone still ring, buzz, or get notifications inside?
+            <svg class="faq-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </summary>
+          <div class="faq-a">No. The Faraday lining blocks the signal, so calls, texts, and alerts can't get through until the pouch is unlocked. The device is completely cut off — not just out of sight.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What happens in an emergency?
+            <svg class="faq-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </summary>
+          <div class="faq-a">The phone stays on the student or guest the whole time and opens in about a second at any unlock base. Staff keep bases at the front office and exits — plus their own devices — so everyone stays reachable.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>How do people unlock at the end of the day or event?
+            <svg class="faq-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </summary>
+          <div class="faq-a">They tap the pouch on a magnetic base on the way out and it releases instantly. A single base clears a steady line — no keys, no apps, no lining up.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Can it be forced open or tampered with?
+            <svg class="faq-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </summary>
+          <div class="faq-a">The magnetic lock only releases on a base, so there's no way to pop it open by hand without visibly damaging the pouch — which staff can spot at a glance.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Does it need Wi-Fi, batteries, or an app?
+            <svg class="faq-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </summary>
+          <div class="faq-a">None. SafePouch is fully mechanical and magnetic — nothing to charge, sync, update, or troubleshoot. It works the same on day one and in year three.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>What phones does it fit?
+            <svg class="faq-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </summary>
+          <div class="faq-a">It fits any modern smartphone up to the largest models, case on. One pouch size covers your whole school or venue.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Can we add our own branding?
+            <svg class="faq-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </summary>
+          <div class="faq-a">Yes. Pouches can be printed with your school or venue's logo, colors, or mascot, so they feel like yours from day one.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>How much does it cost?
+            <svg class="faq-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </summary>
+          <div class="faq-a">Pricing depends on quantity and customization, and district-wide rates are available. Tell us your size and we'll send a quote within one business day.</div>
+        </details>
+      </div>
+
+      <div class="mt-12 text-center">
+        <a href="contact.html" class="btn-primary">Get a quote</a>
+      </div>
+    </div>
+  </section>
+
   <!-- ============== Footer ============== -->
   <footer class="relative pt-16 pb-10 border-t border-line">
     <div class="max-w-5xl mx-auto px-5 md:px-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
@@ -1015,7 +1248,6 @@
       <nav class="flex items-center gap-6 text-xs text-paper/60">
         <a href="about.html" class="nav-link whitespace-nowrap">Our Story</a>
         <a href="contact.html" class="nav-link">Contact</a>
-        <a href="mailto:safepouchco@gmail.com" class="nav-link">safepouchco@gmail.com</a>
         <a href="privacy.html" class="nav-link">Privacy</a>
         <a href="terms.html" class="nav-link">Terms</a>
       </nav>
