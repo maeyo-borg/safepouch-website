@@ -334,6 +334,21 @@
     .shot-inset.at-left { left: -5%; right: auto; }
     .shot-inset img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
+    /* Floating transparent product shot */
+    .pouch-float { position: relative; display: flex; align-items: center; justify-content: center; padding: 1.5rem 0; }
+    .pouch-float .pouch-glow {
+      position: absolute; width: 68%; height: 72%; border-radius: 9999px;
+      background: radial-gradient(closest-side, rgba(184,155,94,0.22), rgba(184,155,94,0) 72%);
+      filter: blur(10px); pointer-events: none;
+    }
+    .pouch-float img {
+      position: relative; z-index: 1; width: auto; height: 380px;
+      filter: drop-shadow(0 42px 46px rgba(0,0,0,0.55));
+    }
+    @media (min-width: 768px) { .pouch-float img { height: 500px; } }
+    .pouch-float.is-base img { height: 320px; }
+    @media (min-width: 768px) { .pouch-float.is-base img { height: 420px; } }
+
     @media (prefers-reduced-motion: reduce) {
       .floaty, .floaty-2 { animation: none; }
       .reveal { opacity: 1; transform: none; transition: none; }
@@ -710,8 +725,9 @@
 
       <!-- Feature: hero shot + points -->
       <div class="reveal mt-14 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-        <div class="product-shot aspect-[4/5]">
-          <img src="images/pouch-hero.jpg" alt="The SafePouch locking pouch" loading="lazy" decoding="async" />
+        <div class="pouch-float">
+          <div class="pouch-glow"></div>
+          <img src="images/pouch-hero-cut.webp" alt="The SafePouch locking pouch" class="floaty" loading="lazy" decoding="async" />
         </div>
         <div>
           <h3 class="text-2xl md:text-3xl">One pouch, every device</h3>
@@ -731,22 +747,17 @@
 
       <!-- Feature: a look inside -->
       <div class="reveal mt-16 md:mt-24 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-        <div class="lg:order-2 shot-cluster">
-          <div class="product-shot aspect-[4/3]">
-            <img src="images/feature-faraday-lining.jpg" alt="Inside the SafePouch — padded lining and magnetic lock" loading="lazy" decoding="async" />
-          </div>
-          <div class="shot-inset at-left aspect-square floaty">
-            <img src="images/feature-lining-closeup.jpg" alt="Close-up of the SafePouch shielded lining" loading="lazy" decoding="async" />
-          </div>
+        <div class="lg:order-2 product-shot aspect-[4/3]">
+          <img src="images/feature-faraday-lining.jpg" alt="Inside the SafePouch — padded lining and magnetic lock" loading="lazy" decoding="async" />
         </div>
         <div class="lg:order-1">
           <h3 class="text-2xl md:text-3xl">A look inside</h3>
           <p class="mt-4 text-paper/70 leading-[1.7]">
-            Open it up and you'll find a soft, signal-shielding lining that cradles the device, plus the magnetic lock seated in the flap. Once it's tapped shut, the phone is <span class="text-paper font-semibold">sealed, cushioned, and completely closed off</span> — and it only opens again on an unlock base.
+            Open it up and you'll find a soft, signal-blocking Faraday lining that cradles the device, plus the magnetic lock seated in the flap. Once it's tapped shut, the phone is <span class="text-paper font-semibold">sealed, cushioned, and cut off from every signal</span> — and it only opens again on an unlock base.
           </p>
           <ul class="mt-6 space-y-3 text-paper/75">
             <li class="flex gap-3"><span class="bullet mt-2"></span>Padded interior protects the device all day.</li>
-            <li class="flex gap-3"><span class="bullet mt-2"></span>Shielded lining keeps notifications out of sight and mind.</li>
+            <li class="flex gap-3"><span class="bullet mt-2"></span>Faraday lining blocks the signal — calls, texts, and alerts can't get through.</li>
             <li class="flex gap-3"><span class="bullet mt-2"></span>No way to open it without an unlock base.</li>
           </ul>
         </div>
@@ -754,13 +765,9 @@
 
       <!-- Feature: opens on the base -->
       <div class="reveal mt-16 md:mt-24 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-        <div class="shot-cluster">
-          <div class="product-shot aspect-[4/3]">
-            <img src="images/base-diagonal.jpg" alt="The SafePouch magnetic unlock base" loading="lazy" decoding="async" />
-          </div>
-          <div class="shot-inset aspect-square floaty-2">
-            <img src="images/detail-unlock-macro.jpg" alt="Close-up of the SafePouch unlock mechanism" loading="lazy" decoding="async" />
-          </div>
+        <div class="pouch-float is-base">
+          <div class="pouch-glow"></div>
+          <img src="images/base-cut.webp" alt="The SafePouch magnetic unlock base" class="floaty-2" loading="lazy" decoding="async" />
         </div>
         <div>
           <h3 class="text-2xl md:text-3xl">Opens on the base</h3>
@@ -1008,7 +1015,7 @@
       <nav class="flex items-center gap-6 text-xs text-paper/60">
         <a href="about.html" class="nav-link whitespace-nowrap">Our Story</a>
         <a href="contact.html" class="nav-link">Contact</a>
-        <a href="mailto:hello@safepouch.co" class="nav-link">hello@safepouch.co</a>
+        <a href="mailto:safepouchco@gmail.com" class="nav-link">safepouchco@gmail.com</a>
         <a href="privacy.html" class="nav-link">Privacy</a>
         <a href="terms.html" class="nav-link">Terms</a>
       </nav>
