@@ -265,16 +265,16 @@
       border-radius: 9999px; background: var(--brass-2); vertical-align: middle;
       box-shadow: 0 0 10px rgba(184,155,94,0.9);
     }
-    /* front branded pouch — the hero piece */
+    /* front branded pouch — the hero piece, fully in frame */
     .sc-pouch-front {
-      right: -3%; top: 2%; width: 62%; z-index: 3;
+      right: 2%; top: 4%; width: 54%; z-index: 3;
       transform: rotate(4deg);
       filter: drop-shadow(0 44px 46px rgba(0,0,0,0.55));
       animation: scFloatA 7s ease-in-out infinite;
     }
-    /* back blank-label pouch — overlapping, tilted the other way */
+    /* back blank-label pouch — overlapping, tilted the other way, fully in frame */
     .sc-pouch-back {
-      left: 34%; bottom: -5%; width: 33%; z-index: 4;
+      left: 33%; bottom: 1%; width: 30%; z-index: 4;
       transform: rotate(-13deg);
       filter: drop-shadow(0 34px 40px rgba(0,0,0,0.6));
       animation: scFloatB 8s ease-in-out infinite;
@@ -299,9 +299,9 @@
     @media (max-width: 640px) {
       .showcase-stage { margin: 0 auto; max-width: 100%; }
       .showcase-stage::before { padding-top: 118%; }
-      .sc-card { left: 1%; top: 12%; width: 50%; }
-      .sc-pouch-front { right: 1%; top: 6%; width: 58%; }
-      .sc-pouch-back { left: 29%; bottom: -1%; width: 34%; }
+      .sc-card { left: 1%; top: 12%; width: 48%; }
+      .sc-pouch-front { right: 2%; top: 6%; width: 56%; }
+      .sc-pouch-back { left: 31%; bottom: 3%; width: 32%; }
       .sc-tag { font-size: 10px; padding: 5px 9px; }
     }
 
