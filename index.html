@@ -234,7 +234,7 @@
     /* ===== Product showcase collage (floating, diagonal) ===== */
     .showcase-stage { position: relative; z-index: 1; }
     /* keep a stable square-ish canvas the absolute pieces compose within */
-    .showcase-stage::before { content: ''; display: block; padding-top: 104%; }
+    .showcase-stage::before { content: ''; display: block; padding-top: 112%; }
     .showcase-glow {
       position: absolute; z-index: 0;
       left: 14%; top: 4%; width: 82%; height: 82%;
@@ -244,7 +244,7 @@
     .sc-piece { position: absolute; }
     /* lifestyle card, tucked behind */
     .sc-card {
-      left: 0; top: 7%; width: 54%; z-index: 1;
+      left: 2%; top: 8%; width: 49%; z-index: 1;
       border-radius: 22px; overflow: hidden;
       transform: rotate(-6deg);
       border: 1px solid rgba(250,250,247,0.14);
@@ -267,15 +267,15 @@
     }
     /* front branded pouch — the hero piece, fully in frame */
     .sc-pouch-front {
-      right: 2%; top: 4%; width: 54%; z-index: 3;
+      right: 5%; top: 9%; width: 48%; z-index: 3;
       transform: rotate(4deg);
       filter: drop-shadow(0 44px 46px rgba(0,0,0,0.55));
       animation: scFloatA 7s ease-in-out infinite;
     }
     /* back blank-label pouch — overlapping, tilted the other way, fully in frame */
     .sc-pouch-back {
-      left: 33%; bottom: 1%; width: 30%; z-index: 4;
-      transform: rotate(-13deg);
+      left: 29%; bottom: 6%; width: 26%; z-index: 4;
+      transform: rotate(-12deg);
       filter: drop-shadow(0 34px 40px rgba(0,0,0,0.6));
       animation: scFloatB 8s ease-in-out infinite;
     }
@@ -298,10 +298,10 @@
     }
     @media (max-width: 640px) {
       .showcase-stage { margin: 0 auto; max-width: 100%; }
-      .showcase-stage::before { padding-top: 118%; }
-      .sc-card { left: 1%; top: 12%; width: 48%; }
-      .sc-pouch-front { right: 2%; top: 6%; width: 56%; }
-      .sc-pouch-back { left: 31%; bottom: 3%; width: 32%; }
+      .showcase-stage::before { padding-top: 120%; }
+      .sc-card { left: 2%; top: 12%; width: 46%; }
+      .sc-pouch-front { right: 4%; top: 10%; width: 50%; }
+      .sc-pouch-back { left: 28%; bottom: 7%; width: 28%; }
       .sc-tag { font-size: 10px; padding: 5px 9px; }
     }
 
