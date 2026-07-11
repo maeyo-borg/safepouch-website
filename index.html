@@ -371,6 +371,9 @@
     @media (min-width: 768px) { .pouch-float img { height: 500px; } }
     .pouch-float.is-base img { height: 320px; }
     @media (min-width: 768px) { .pouch-float.is-base img { height: 420px; } }
+    /* landscape/angled pouch — size by width so it doesn't overflow the column */
+    .pouch-float.is-wide img { height: auto; width: 100%; max-width: 480px; }
+    @media (min-width: 768px) { .pouch-float.is-wide img { max-width: 560px; } }
 
     /* ===== "Make it yours" branded pouch ===== */
     .brand-stage { position: relative; display: flex; align-items: center; justify-content: center; padding: 1.5rem 0; }
@@ -770,9 +773,9 @@
 
       <!-- Feature: hero shot + points -->
       <div class="reveal mt-14 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-        <div class="pouch-float">
+        <div class="pouch-float is-wide">
           <div class="pouch-glow"></div>
-          <img src="images/pouch-cutout-back.webp" alt="The SafePouch locking pouch" class="floaty" loading="lazy" decoding="async" />
+          <img src="images/pouch-angled-cut.webp" alt="The branded SafePouch locking pouch" class="floaty" loading="lazy" decoding="async" />
         </div>
         <div>
           <h3 class="text-2xl md:text-3xl">One pouch, every device</h3>
