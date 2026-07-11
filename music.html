@@ -67,6 +67,7 @@
       --paper:  #FAFAF7;
       --brass:  #9A8347;
       --brass-2:#B89B5E;
+      --brass-3:#D0BD8E;
     }
     html, body { background: var(--black); }
     body {
@@ -234,6 +235,15 @@
     .mobile-close { position: absolute; top: 1.4rem; right: 1.4rem; background: transparent; border: 0; color: var(--paper); cursor: pointer; padding: 6px; }
     body.menu-open { overflow: hidden; }
 
+
+    /* Scroll reveal (ported from landing) */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .75s cubic-bezier(.2,.7,.2,1), transform .75s cubic-bezier(.2,.7,.2,1); transition-delay: var(--d, 0s); will-change: opacity, transform; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+    /* Framed product/lifestyle image */
+    .product-shot { position: relative; overflow: hidden; border-radius: 20px; border: 1px solid rgba(250,250,247,0.10); box-shadow: 0 30px 70px -34px rgba(0,0,0,0.7); background: #f4f4f2; }
+    .product-shot.is-dark { background: radial-gradient(130% 120% at 50% 25%, #17171c, #0A0A0B); border-color: rgba(184,155,94,0.20); }
+    .product-shot img { display: block; width: 100%; height: 100%; object-fit: cover; }
   </style>
 </head>
 <body class="bg-black text-paper">
@@ -323,7 +333,7 @@
     <div class="max-w-5xl mx-auto px-5 md:px-8">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
         <!-- Featured tall (left) -->
-        <figure class="group relative overflow-hidden rounded-[22px] aspect-[4/3] sm:aspect-auto sm:row-span-2" style="border:1px solid rgba(250,250,247,0.10);">
+        <figure class="reveal group relative overflow-hidden rounded-[22px] aspect-[4/3] sm:aspect-auto sm:row-span-2" style="border:1px solid rgba(250,250,247,0.10);">
           <img src="images/crowd-no-phones.jpg"
                onerror="this.onerror=null;this.src='https://placehold.co/1280x1600/16161A/8C7A5B?text=lights'"
                alt="Stage lights sweeping over a packed, device-free crowd"
@@ -332,7 +342,7 @@
           <figcaption class="absolute bottom-0 left-0 right-0 p-5 text-sm font-semibold tracking-wide text-paper/90">Lights up, phones down — the whole room looking up.</figcaption>
         </figure>
         <!-- Top right -->
-        <figure class="group relative overflow-hidden rounded-[22px]" style="border:1px solid rgba(250,250,247,0.10);">
+        <figure class="reveal group relative overflow-hidden rounded-[22px]" style="border:1px solid rgba(250,250,247,0.10);">
           <img src="images/safepouch-crowd.jpg"
                onerror="this.onerror=null;this.src='https://placehold.co/1280x800/16161A/8C7A5B?text=event-crowd'"
                alt="A packed, device-free crowd locked into a live DJ set"
@@ -341,7 +351,7 @@
           <figcaption class="absolute bottom-0 left-0 right-0 p-5 text-sm font-semibold tracking-wide text-paper/90">Phones away — every hand in the air, not on a screen.</figcaption>
         </figure>
         <!-- Bottom right -->
-        <figure class="group relative overflow-hidden rounded-[22px]" style="border:1px solid rgba(250,250,247,0.10);">
+        <figure class="reveal group relative overflow-hidden rounded-[22px]" style="border:1px solid rgba(250,250,247,0.10);">
           <img src="images/safepouch-venue-hero.jpg"
                onerror="this.onerror=null;this.src='https://placehold.co/1280x800/16161A/8C7A5B?text=event-venue'"
                alt="Sold-out marquee at a major arena show"
@@ -355,7 +365,7 @@
 
   <!-- ============== What you get ============== -->
   <section class="relative py-16 md:py-24">
-    <div class="max-w-3xl mx-auto px-5 md:px-8">
+    <div class="reveal max-w-3xl mx-auto px-5 md:px-8">
       <div class="flex items-center gap-3 text-brass-2 mb-4">
         <span class="text-xs font-bold uppercase tracking-widest">What you get</span>
       </div>
@@ -370,21 +380,21 @@
 
   <!-- ============== How a show runs ============== -->
   <section class="relative py-16 md:py-24 grain">
-    <div class="max-w-3xl mx-auto px-5 md:px-8 text-center">
+    <div class="reveal max-w-3xl mx-auto px-5 md:px-8 text-center">
       <h2 class="text-[32px] md:text-[48px] leading-[1.08]">How a show runs</h2>
       <p class="mt-6 text-paper/65 leading-[1.75] max-w-xl mx-auto">Guests keep their phones the whole night — just locked while the music's on.</p>
     </div>
 
     <div class="max-w-6xl mx-auto px-5 md:px-8 mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
-      <div class="card p-8">
+      <div class="reveal card p-8" style="--d:.05s">
         <h3 class="text-2xl">1. Pouch up at the door</h3>
         <p class="mt-5 text-paper/75 leading-[1.7]">Guests drop their phone into a SafePouch as they enter and keep it on them — no bag check, no surrendering devices.</p>
       </div>
-      <div class="card p-8">
+      <div class="reveal card p-8" style="--d:.15s">
         <h3 class="text-2xl">2. Present for the whole set</h3>
         <p class="mt-5 text-paper/75 leading-[1.7]">Need a quick text? Step to an unlock station, then re-lock and head back in. The floor stays screen-free.</p>
       </div>
-      <div class="card p-8">
+      <div class="reveal card p-8" style="--d:.25s">
         <h3 class="text-2xl">3. Unlock on the way out</h3>
         <p class="mt-5 text-paper/75 leading-[1.7]">Tap to unlock at the exits as the room empties — our on-site lead handles the flow so your staff don't have to.</p>
       </div>
@@ -394,7 +404,7 @@
   <!-- ============== Concrete outcome ============== -->
   <section class="relative py-16 md:py-24">
     <div class="max-w-3xl mx-auto px-5 md:px-8">
-      <div class="card p-8 md:p-12">
+      <div class="reveal card p-8 md:p-12">
         <div class="text-brass-2 font-bold text-sm uppercase tracking-widest">Concrete outcome</div>
         <p class="mt-4 text-[22px] md:text-[28px] leading-[1.4]">A crowd that <b>actually shows up</b> for the show, without venue staff playing camera police.</p>
       </div>
@@ -403,7 +413,7 @@
 
   <!-- ============== CTA ============== -->
   <section class="relative py-20 md:py-28">
-    <div class="max-w-3xl mx-auto px-5 md:px-8 text-center">
+    <div class="reveal max-w-3xl mx-auto px-5 md:px-8 text-center">
       <h2 class="text-[32px] md:text-[48px] leading-[1.08]">Make the next show device-free.</h2>
       <p class="mt-5 text-paper/65 leading-[1.75] max-w-xl mx-auto">Tell us about your venue, tour, or festival — we'll send specs and event pricing within one business day.</p>
       <div class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -461,6 +471,19 @@
       if(closeBtn) closeBtn.addEventListener('click', closeMenu);
       menu.addEventListener('click', function(e){ if(e.target === menu || e.target.closest('a')) closeMenu(); });
       document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMenu(); });
+    })();
+  </script>
+  <!-- Scroll reveal -->
+  <script>
+    (function(){
+      var els = document.querySelectorAll('.reveal');
+      if(!els.length) return;
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(reduce || !('IntersectionObserver' in window)){ els.forEach(function(e){ e.classList.add('in'); }); return; }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      els.forEach(function(e){ io.observe(e); });
     })();
   </script>
 </body>
