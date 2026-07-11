@@ -138,6 +138,8 @@
       background: #f4f4f2;
     }
     .product-shot img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    /* dark variant for a black-background product shot (blends on the dark page) */
+    .product-shot.is-dark { background: radial-gradient(130% 120% at 50% 25%, #17171c, #0A0A0B); border-color: rgba(184,155,94,0.20); }
 
     /* ===== Scroll reveal ===== */
     .reveal {
@@ -397,8 +399,8 @@
           <li class="flex gap-3"><span class="bullet mt-2"></span><span>Roll-out playbook, staff training, and admin dashboard.</span></li>
         </ul>
       </div>
-      <div class="reveal product-shot aspect-[4/5] max-w-md w-full mx-auto">
-        <img src="images/pouch-front-flat.jpg" alt="A SafePouch printed with a school's branding" loading="lazy" decoding="async" />
+      <div class="reveal product-shot is-dark aspect-[3/2] max-w-lg w-full mx-auto">
+        <img src="images/pouch-branded-black.jpg" alt="A SafePouch printed with a school's branding" loading="lazy" decoding="async" />
       </div>
     </div>
   </section>
