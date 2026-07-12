@@ -68,7 +68,8 @@
       --brass:  #9A8347;
       --brass-2:#B89B5E;
     }
-    html, body { background: var(--black); }
+    html, body { background: var(--black); overflow-x: hidden; }
+    .grid > * { min-width: 0; }
     body {
       font-family: 'Helvetica Neue', Helvetica, Arial, system-ui, sans-serif;
       color: var(--paper);
@@ -357,7 +358,7 @@
       <div class="flex items-center gap-2">
         <a href="index.html"><img src="BRAND_ASSETS/Trans.png" alt="SafePouch" class="sp-logo-reverse h-6 w-auto" /></a>
       </div>
-      <nav class="flex items-center gap-6 text-xs text-paper/60">
+      <nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-paper/60">
         <a href="about.html" class="nav-link whitespace-nowrap">Our Story</a>
         <a href="faq.html" class="nav-link">FAQ</a>
         <a href="compare.html" class="nav-link">Compare</a>

@@ -69,7 +69,8 @@
       --brass-2:#B89B5E;
       --brass-3:#D0BD8E;
     }
-    html, body { background: var(--black); }
+    html, body { background: var(--black); overflow-x: hidden; }
+    .grid > * { min-width: 0; }
     body {
       font-family: 'Helvetica Neue', Helvetica, Arial, system-ui, sans-serif;
       color: var(--paper);
@@ -342,7 +343,7 @@
       <div class="flex items-center justify-center gap-3 text-brass-2 mb-4">
         <span class="text-xs font-bold uppercase tracking-widest">FAQ</span>
       </div>
-      <h1 class="display-hero text-[44px] sm:text-[60px] md:text-[80px]">Questions,<br/>answered.</h1>
+      <h1 class="display-hero text-[clamp(1.85rem,7vw,5rem)]">Questions,<br/>answered.</h1>
       <p class="mt-7 text-paper/70 text-base md:text-lg leading-[1.7] max-w-2xl mx-auto">Everything schools, districts, and venues ask before they roll out SafePouch. Still curious? <a href="contact.html" class="text-brass-2 font-semibold nav-link">Get in touch</a>.</p>
     </div>
   </section>
@@ -426,7 +427,7 @@
       <div class="flex items-center gap-2">
         <a href="index.html"><img src="BRAND_ASSETS/Trans.png" alt="SafePouch" class="sp-logo-reverse h-6 w-auto" /></a>
       </div>
-      <nav class="flex items-center gap-6 text-xs text-paper/60">
+      <nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-paper/60">
         <a href="about.html" class="nav-link whitespace-nowrap">Our Story</a>
         <a href="faq.html" class="nav-link">FAQ</a>
         <a href="compare.html" class="nav-link">Compare</a>

@@ -69,7 +69,8 @@
       --brass-2:#B89B5E;
       --brass-3:#D0BD8E;
     }
-    html, body { background: var(--black); }
+    html, body { background: var(--black); overflow-x: hidden; }
+    .grid > * { min-width: 0; }
     body {
       font-family: 'Helvetica Neue', Helvetica, Arial, system-ui, sans-serif;
       color: var(--paper);
@@ -321,7 +322,7 @@
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
         <span class="text-xs font-bold uppercase tracking-widest">Live music &amp; events</span>
       </div>
-      <h1 class="display-hero text-[48px] sm:text-[64px] md:text-[88px]">A device-free<br/>show, every show.</h1>
+      <h1 class="display-hero text-[clamp(1.9rem,7.5vw,5.5rem)]">A device-free<br/>show, every show.</h1>
       <p class="mt-7 text-paper/70 text-base md:text-lg leading-[1.7] max-w-2xl mx-auto">
         For artists who want the room present, and venues that want the moment to belong to the people in it — not the feed.
       </p>
@@ -432,7 +433,7 @@
       <div class="flex items-center gap-2">
         <a href="index.html"><img src="BRAND_ASSETS/Trans.png" alt="SafePouch" class="sp-logo-reverse h-6 w-auto" /></a>
       </div>
-      <nav class="flex items-center gap-6 text-xs text-paper/60">
+      <nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-paper/60">
         <a href="schools.html" class="nav-link">Schools</a>
         <a href="music.html" class="nav-link">Music</a>
         <a href="about.html" class="nav-link whitespace-nowrap">Our Story</a>

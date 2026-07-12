@@ -69,7 +69,8 @@
       --brass-2:#B89B5E;
       --brass-3:#D0BD8E;
     }
-    html, body { background: var(--black); }
+    html, body { background: var(--black); overflow-x: hidden; }
+    .grid > * { min-width: 0; }
     body {
       font-family: 'Helvetica Neue', Helvetica, Arial, system-ui, sans-serif;
       color: var(--paper);
@@ -322,7 +323,7 @@
       <div class="flex items-center justify-center gap-3 text-brass-2 mb-4">
         <span class="text-xs font-bold uppercase tracking-widest">Our Story</span>
       </div>
-      <h1 class="display-hero text-[48px] sm:text-[64px] md:text-[88px]">Give the<br/>room back.</h1>
+      <h1 class="display-hero text-[clamp(1.9rem,7.5vw,5.5rem)]">Give the<br/>room back.</h1>
       <p class="mt-7 text-paper/70 text-base md:text-lg leading-[1.7] max-w-2xl mx-auto">
         We didn't build SafePouch in a boardroom. We built it as students who couldn't focus in class
         and friends who watched half a concert through a screen. It's the simple object we wish we'd had —
@@ -418,7 +419,7 @@
       <div class="flex items-center gap-2">
         <a href="index.html"><img src="BRAND_ASSETS/Trans.png" alt="SafePouch" class="sp-logo-reverse h-6 w-auto" /></a>
       </div>
-      <nav class="flex items-center gap-6 text-xs text-paper/60">
+      <nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-paper/60">
         <a href="about.html" class="nav-link whitespace-nowrap">Our Story</a>
         <a href="faq.html" class="nav-link">FAQ</a>
         <a href="compare.html" class="nav-link">Compare</a>

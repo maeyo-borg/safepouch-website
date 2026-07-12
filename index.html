@@ -73,6 +73,7 @@
       --brass-3:#D0BD8E;
     }
     html, body { background: var(--black); overflow-x: hidden; }
+    .grid > * { min-width: 0; }
     body {
       font-family: 'Helvetica Neue', Helvetica, Arial, system-ui, sans-serif;
       color: var(--paper);
@@ -696,7 +697,7 @@
     <div class="hero-spot"></div>
 
     <div class="relative z-10 max-w-4xl mx-auto px-5 md:px-8 text-center">
-      <h1 class="display-hero text-[56px] sm:text-[72px] md:text-[104px]">
+      <h1 class="display-hero text-[clamp(2.25rem,8vw,6.5rem)]">
         Devices away.<br/>Attention back.
       </h1>
 
@@ -1155,7 +1156,7 @@
       <div class="flex items-center gap-2">
         <img src="BRAND_ASSETS/Trans.png" alt="SafePouch" class="sp-logo-reverse h-6 w-auto" />
       </div>
-      <nav class="flex items-center gap-6 text-xs text-paper/60">
+      <nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-paper/60">
         <a href="about.html" class="nav-link whitespace-nowrap">Our Story</a>
         <a href="faq.html" class="nav-link">FAQ</a>
         <a href="compare.html" class="nav-link">Compare</a>

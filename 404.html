@@ -68,7 +68,8 @@
       --brass:  #9A8347;
       --brass-2:#B89B5E;
     }
-    html, body { background: var(--black); }
+    html, body { background: var(--black); overflow-x: hidden; }
+    .grid > * { min-width: 0; }
     body {
       font-family: 'Helvetica Neue', Helvetica, Arial, system-ui, sans-serif;
       color: var(--paper);
@@ -306,7 +307,7 @@
   <section class="relative min-h-[68vh] flex flex-col justify-center pt-36 md:pt-44 pb-24 grain">
     <div class="max-w-xl mx-auto px-5 md:px-8 text-center">
       <div class="text-xs font-bold uppercase tracking-[0.2em] text-brass-2">Error 404</div>
-      <h1 class="mt-4 display-hero text-[44px] sm:text-[60px] md:text-[80px] leading-[1.04]">Page not found</h1>
+      <h1 class="mt-4 display-hero text-[clamp(1.85rem,7vw,5rem)] leading-[1.04]">Page not found</h1>
       <p class="mt-6 text-paper/65 leading-[1.7]">The page you're looking for doesn't exist or may have moved. Let's get you back on track.</p>
       <div class="mt-9 flex items-center justify-center gap-5">
         <a href="index.html" class="btn-primary">Back to home</a>
@@ -320,7 +321,7 @@
       <div class="flex items-center gap-2">
         <a href="index.html"><img src="BRAND_ASSETS/Trans.png" alt="SafePouch" class="sp-logo-reverse h-6 w-auto" /></a>
       </div>
-      <nav class="flex items-center gap-6 text-xs text-paper/60">
+      <nav class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-paper/60">
         <a href="about.html" class="nav-link whitespace-nowrap">Our Story</a>
         <a href="faq.html" class="nav-link">FAQ</a>
         <a href="compare.html" class="nav-link">Compare</a>
