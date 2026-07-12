@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Music & Live Events — SafePouch</title>
-  <meta name="description" content="A device-free show, every show. SafePouch gives artists the room present and venues the moment back — staffed unlock stations, day-of logistics, on-site lead." />
+  <title>Compare — SafePouch</title>
+  <meta name="description" content="See how SafePouch compares to other locking pouches, Faraday sleeves, and simply collecting phones — feature by feature." />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
   <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <meta name="theme-color" content="#0A0A0B" />
 
   <!-- Social / SEO -->
-  <link rel="canonical" href="https://maeyo-borg.github.io/safepouch-website/music.html" />
+  <link rel="canonical" href="https://maeyo-borg.github.io/safepouch-website/about.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="SafePouch" />
-  <meta property="og:title" content="Music & Live Events — SafePouch" />
-  <meta property="og:description" content="A device-free show, every show. SafePouch gives artists the room present and venues the moment back — staffed unlock stations, day-of logistics, on-site lead." />
-  <meta property="og:url" content="https://maeyo-borg.github.io/safepouch-website/music.html" />
+  <meta property="og:title" content="Our Story — SafePouch" />
+  <meta property="og:description" content="SafePouch was built by educators and event operators with one goal: give the room back. Learn who we are and why device-free spaces matter." />
+  <meta property="og:url" content="https://maeyo-borg.github.io/safepouch-website/about.html" />
   <meta property="og:image" content="https://maeyo-borg.github.io/safepouch-website/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Music & Live Events — SafePouch" />
-  <meta name="twitter:description" content="A device-free show, every show. SafePouch gives artists the room present and venues the moment back — staffed unlock stations, day-of logistics, on-site lead." />
+  <meta name="twitter:title" content="Our Story — SafePouch" />
+  <meta name="twitter:description" content="SafePouch was built by educators and event operators with one goal: give the room back. Learn who we are and why device-free spaces matter." />
   <meta name="twitter:image" content="https://maeyo-borg.github.io/safepouch-website/og-image.png" />
 
 
@@ -185,6 +185,17 @@
     .bullet { width: 9px; height: 9px; border-radius: 9999px; background: var(--paper); display: inline-block; flex-shrink: 0; position: relative; }
     .bullet::after { content:''; position:absolute; inset:3px; border-radius:9999px; background: var(--brass-2); }
 
+    /* Stat chips */
+    .chip {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 12px 22px;
+      background: rgba(250,250,247,0.04);
+      border: 1px solid rgba(250,250,247,0.14);
+      color: var(--paper); font-weight: 600;
+      border-radius: 9999px;
+    }
+    .chip::before { content:''; width:8px; height:8px; border-radius:9999px; background: var(--brass-2); box-shadow: 0 0 8px rgba(154,131,71,0.7); }
+
     h1 { letter-spacing: -0.045em; }
     h2 { letter-spacing: -0.035em; }
     h3 { letter-spacing: -0.025em; }
@@ -245,6 +256,22 @@
     .product-shot.is-dark { background: radial-gradient(130% 120% at 50% 25%, #17171c, #0A0A0B); border-color: rgba(184,155,94,0.20); }
     .product-shot img { display: block; width: 100%; height: 100%; object-fit: cover; }
   </style>
+  <style>
+    .cmp-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 20px; }
+    .cmp { width: 100%; min-width: 680px; border-collapse: separate; border-spacing: 0; }
+    .cmp th, .cmp td { padding: 15px 16px; text-align: center; vertical-align: middle; }
+    .cmp thead th { font-size: 12.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(250,250,247,0.55); padding-top: 18px; padding-bottom: 18px; }
+    .cmp tbody th { text-align: left; font-weight: 600; color: var(--paper); font-size: 14.5px; line-height: 1.4; min-width: 210px; }
+    .cmp tbody tr + tr th, .cmp tbody tr + tr td { border-top: 1px solid rgba(250,250,247,0.07); }
+    .cmp .col-sp { border-left: 1px solid rgba(184,155,94,0.30); border-right: 1px solid rgba(184,155,94,0.30); background: linear-gradient(180deg, rgba(184,155,94,0.10), rgba(184,155,94,0.02)); }
+    .cmp thead .col-sp { color: var(--brass-3); font-size: 15px; border-top: 1px solid rgba(184,155,94,0.30); border-top-left-radius: 16px; border-top-right-radius: 16px; }
+    .cmp tbody tr:last-child .col-sp { border-bottom: 1px solid rgba(184,155,94,0.30); border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; }
+    .cmp .cmp-corner { min-width: 200px; }
+    .ic { width: 22px; height: 22px; display: inline-block; }
+    .ic-yes { color: var(--brass-2); }
+    .ic-no  { color: rgba(250,250,247,0.22); }
+    .ic-mid { color: rgba(250,250,247,0.45); }
+  </style>
 </head>
 <body class="bg-black text-paper">
 
@@ -303,124 +330,62 @@
   </div>
 
   <!-- ============== HERO ============== -->
-  <section class="hero-stage grain relative overflow-hidden pt-40 md:pt-52 pb-16 md:pb-20">
-    <!-- background photo -->
-    <div class="absolute inset-0">
-      <img src="images/safepouch-cdj-closeup.jpg"
-           onerror="this.onerror=null;this.src='https://placehold.co/2560x1440/16161A/2A2A2E?text=+';"
-           alt="A device-free live show — DJ decks lit up mid-set"
-           class="w-full h-full object-cover" />
-      <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(10,10,11,0.55) 0%, rgba(10,10,11,0.66) 55%, #0A0A0B 100%);"></div>
-      <div class="absolute inset-0 bg-brass/10 mix-blend-multiply"></div>
-    </div>
+  <section class="hero-stage grain relative pt-40 md:pt-52 pb-12 md:pb-14">
     <div class="hero-wash"></div>
     <div class="hero-spot"></div>
-
     <div class="relative max-w-4xl mx-auto px-5 md:px-8 text-center">
       <div class="flex items-center justify-center gap-3 text-brass-2 mb-4">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-        <span class="text-xs font-bold uppercase tracking-widest">Live music &amp; events</span>
+        <span class="text-xs font-bold uppercase tracking-widest">Compare</span>
       </div>
-      <h1 class="display-hero text-[48px] sm:text-[64px] md:text-[88px]">A device-free<br/>show, every show.</h1>
-      <p class="mt-7 text-paper/70 text-base md:text-lg leading-[1.7] max-w-2xl mx-auto">
-        For artists who want the room present, and venues that want the moment to belong to the people in it — not the feed.
-      </p>
-      <div class="mt-9 flex items-center justify-center">
-        <a href="contact.html" class="btn-primary">Talk to events team</a>
-      </div>
+      <h1 class="display-hero text-[44px] sm:text-[60px] md:text-[80px]">How SafePouch<br/>compares.</h1>
+      <p class="mt-7 text-paper/70 text-base md:text-lg leading-[1.7] max-w-2xl mx-auto">Locking pouches, Faraday sleeves, or just collecting phones in a bin — here's where SafePouch lands against every option, honestly.</p>
     </div>
   </section>
 
-  <!-- ============== Photo gallery ============== -->
-  <section class="relative pb-4">
+  <!-- ============== Comparison table ============== -->
+  <section class="relative pb-10 md:pb-16 grain">
     <div class="max-w-5xl mx-auto px-5 md:px-8">
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
-        <!-- Featured tall (left) -->
-        <figure class="reveal group relative overflow-hidden rounded-[22px] aspect-[4/3] sm:aspect-auto sm:row-span-2" style="border:1px solid rgba(250,250,247,0.10);">
-          <img src="images/crowd-no-phones.jpg"
-               onerror="this.onerror=null;this.src='https://placehold.co/1280x1600/16161A/8C7A5B?text=lights'"
-               alt="Stage lights sweeping over a packed, device-free crowd"
-               class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent pointer-events-none"></div>
-          <figcaption class="absolute bottom-0 left-0 right-0 p-5 text-sm font-semibold tracking-wide text-paper/90">Lights up, phones down — the whole room looking up.</figcaption>
-        </figure>
-        <!-- Top right -->
-        <figure class="reveal group relative overflow-hidden rounded-[22px]" style="border:1px solid rgba(250,250,247,0.10);">
-          <img src="images/safepouch-crowd.jpg"
-               onerror="this.onerror=null;this.src='https://placehold.co/1280x800/16161A/8C7A5B?text=event-crowd'"
-               alt="A packed, device-free crowd locked into a live DJ set"
-               class="w-full aspect-[16/10] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent pointer-events-none"></div>
-          <figcaption class="absolute bottom-0 left-0 right-0 p-5 text-sm font-semibold tracking-wide text-paper/90">Phones away — every hand in the air, not on a screen.</figcaption>
-        </figure>
-        <!-- Bottom right -->
-        <figure class="reveal group relative overflow-hidden rounded-[22px]" style="border:1px solid rgba(250,250,247,0.10);">
-          <img src="images/safepouch-venue-hero.jpg"
-               onerror="this.onerror=null;this.src='https://placehold.co/1280x800/16161A/8C7A5B?text=event-venue'"
-               alt="Sold-out marquee at a major arena show"
-               class="w-full aspect-[16/10] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent pointer-events-none"></div>
-          <figcaption class="absolute bottom-0 left-0 right-0 p-5 text-sm font-semibold tracking-wide text-paper/90">Sold-out rooms, fully present from the first note.</figcaption>
-        </figure>
+      <div class="cmp-wrap reveal">
+        <table class="cmp">
+          <thead>
+            <tr>
+              <th scope="col" class="cmp-corner"></th>
+              <th scope="col" class="col-sp">SafePouch</th>
+              <th scope="col">Other locking pouches</th>
+              <th scope="col">Faraday sleeves</th>
+              <th scope="col">Collecting phones</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr><th scope="row">Students & guests keep their own phone</th><td class="col-sp"><svg class="ic ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></td><td class=""><svg class="ic ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></td><td class=""><svg class="ic ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></td><td class=""><svg class="ic ic-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></td></tr>
+        <tr><th scope="row">Locks shut so it can't be used</th><td class="col-sp"><svg class="ic ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></td><td class=""><svg class="ic ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></td><td class=""><svg class="ic ic-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></td><td class=""><svg class="ic ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></td></tr>
+        <tr><th scope="row">Blocks the signal — no calls, texts, or buzzing</th><td class="col-sp"><svg class="ic ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></td><td class=""><svg class="ic ic-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></td><td class=""><svg class="ic ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></td><td class=""><svg class="ic ic-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></td></tr>
+        <tr><th scope="row">Tap-to-unlock in ~1 second at a base</th><td class="col-sp"><svg class="ic ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></td><td class=""><svg class="ic ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></td><td class=""><svg class="ic ic-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></td><td class=""><svg class="ic ic-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></td></tr>
+        <tr><th scope="row">No apps, batteries, or Wi-Fi</th><td class="col-sp"><svg class="ic ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></td><td class=""><svg class="ic ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></td><td class=""><svg class="ic ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></td><td class=""><svg class="ic ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></td></tr>
+        <tr><th scope="row">Reusable year after year</th><td class="col-sp"><svg class="ic ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></td><td class=""><svg class="ic ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></td><td class=""><svg class="ic ic-mid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="6" y1="12" x2="18" y2="12"/></svg></td><td class=""><svg class="ic ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></td></tr>
+        <tr><th scope="row">Custom logo, mascot &amp; colors</th><td class="col-sp"><svg class="ic ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></td><td class=""><svg class="ic ic-mid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="6" y1="12" x2="18" y2="12"/></svg></td><td class=""><svg class="ic ic-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></td><td class=""><svg class="ic ic-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></td></tr>
+        <tr><th scope="row">Faraday or stitched interior — same price</th><td class="col-sp"><svg class="ic ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></td><td class=""><svg class="ic ic-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></td><td class=""><svg class="ic ic-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></td><td class=""><svg class="ic ic-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></td></tr>
+        <tr><th scope="row">Phone stays on the person (emergencies)</th><td class="col-sp"><svg class="ic ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></td><td class=""><svg class="ic ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></td><td class=""><svg class="ic ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></td><td class=""><svg class="ic ic-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></td></tr>
+        <tr><th scope="row">Low staff effort — no collect, store, return</th><td class="col-sp"><svg class="ic ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></td><td class=""><svg class="ic ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></td><td class=""><svg class="ic ic-mid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="6" y1="12" x2="18" y2="12"/></svg></td><td class=""><svg class="ic ic-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></td></tr>
+          </tbody>
+        </table>
       </div>
-    </div>
-  </section>
-
-  <!-- ============== What you get ============== -->
-  <section class="relative py-16 md:py-24">
-    <div class="reveal max-w-3xl mx-auto px-5 md:px-8">
-      <div class="flex items-center gap-3 text-brass-2 mb-4">
-        <span class="text-xs font-bold uppercase tracking-widest">What you get</span>
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-x-7 gap-y-2 text-xs text-paper/55">
+        <span class="inline-flex items-center gap-2"><svg class="ic ic-yes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Included</span></span>
+        <span class="inline-flex items-center gap-2"><svg class="ic ic-mid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="6" y1="12" x2="18" y2="12"/></svg><span>Varies / limited</span></span>
+        <span class="inline-flex items-center gap-2"><svg class="ic ic-no" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg><span>Not offered</span></span>
       </div>
-      <h2 class="text-[30px] md:text-[42px] leading-[1.12]">Turnkey, from doors to encore.</h2>
-      <ul class="mt-8 space-y-4 text-paper/80 leading-[1.7]">
-        <li class="flex gap-3"><span class="bullet mt-2"></span>Event-grade pouches sized to fit any device.</li>
-        <li class="flex gap-3"><span class="bullet mt-2"></span>Staffed unlock stations at entrance and exits.</li>
-        <li class="flex gap-3"><span class="bullet mt-2"></span>Day-of logistics, training, and on-site lead.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ============== How a show runs ============== -->
-  <section class="relative py-16 md:py-24 grain">
-    <div class="reveal max-w-3xl mx-auto px-5 md:px-8 text-center">
-      <h2 class="text-[32px] md:text-[48px] leading-[1.08]">How a show runs</h2>
-      <p class="mt-6 text-paper/65 leading-[1.75] max-w-xl mx-auto">Guests keep their phones the whole night — just locked while the music's on.</p>
-    </div>
-
-    <div class="max-w-6xl mx-auto px-5 md:px-8 mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
-      <div class="reveal card p-8" style="--d:.05s">
-        <h3 class="text-2xl">1. Pouch up at the door</h3>
-        <p class="mt-5 text-paper/75 leading-[1.7]">Guests drop their phone into a SafePouch as they enter and keep it on them — no bag check, no surrendering devices.</p>
-      </div>
-      <div class="reveal card p-8" style="--d:.15s">
-        <h3 class="text-2xl">2. Present for the whole set</h3>
-        <p class="mt-5 text-paper/75 leading-[1.7]">Need a quick text? Step to an unlock station, then re-lock and head back in. The floor stays screen-free.</p>
-      </div>
-      <div class="reveal card p-8" style="--d:.25s">
-        <h3 class="text-2xl">3. Unlock on the way out</h3>
-        <p class="mt-5 text-paper/75 leading-[1.7]">Tap to unlock at the exits as the room empties — our on-site lead handles the flow so your staff don't have to.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============== Concrete outcome ============== -->
-  <section class="relative py-16 md:py-24">
-    <div class="max-w-3xl mx-auto px-5 md:px-8">
-      <div class="reveal card p-8 md:p-12">
-        <div class="text-brass-2 font-bold text-sm uppercase tracking-widest">Concrete outcome</div>
-        <p class="mt-4 text-[22px] md:text-[28px] leading-[1.4]">A crowd that <b>actually shows up</b> for the show, without venue staff playing camera police.</p>
-      </div>
+      <p class="mt-6 text-center text-xs text-paper/35 max-w-2xl mx-auto">Comparison reflects the typical options in each category; specific products differ and change over time — confirm current details before you decide.</p>
     </div>
   </section>
 
   <!-- ============== CTA ============== -->
-  <section class="relative py-20 md:py-28">
+  <section class="relative py-16 md:py-24">
     <div class="reveal max-w-3xl mx-auto px-5 md:px-8 text-center">
-      <h2 class="text-[32px] md:text-[48px] leading-[1.08]">Make the next show device-free.</h2>
-      <p class="mt-5 text-paper/65 leading-[1.75] max-w-xl mx-auto">Tell us about your venue, tour, or festival — we'll send specs and event pricing within one business day.</p>
+      <h2 class="text-[32px] md:text-[48px] leading-[1.08]">See the difference in person.</h2>
+      <p class="mt-5 text-paper/65 leading-[1.75] max-w-xl mx-auto">Tell us about your school, district, or venue and we'll send specs, pricing, and a pilot plan within one business day.</p>
       <div class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="contact.html" class="btn-primary">Talk to events team</a>
+        <a href="contact.html" class="btn-primary">Contact Us</a>
         <a href="index.html" class="btn-secondary">Back to home</a>
       </div>
     </div>
@@ -433,8 +398,6 @@
         <a href="index.html"><img src="BRAND_ASSETS/Trans.png" alt="SafePouch" class="sp-logo-reverse h-6 w-auto" /></a>
       </div>
       <nav class="flex items-center gap-6 text-xs text-paper/60">
-        <a href="schools.html" class="nav-link">Schools</a>
-        <a href="music.html" class="nav-link">Music</a>
         <a href="about.html" class="nav-link whitespace-nowrap">Our Story</a>
         <a href="faq.html" class="nav-link">FAQ</a>
         <a href="compare.html" class="nav-link">Compare</a>
