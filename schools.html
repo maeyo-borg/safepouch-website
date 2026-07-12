@@ -589,9 +589,11 @@
   </section>
 
   <!-- ============== Funding ============== -->
-  <!-- NOTE: replace the form action YOUR_FORM_ID with a real endpoint
-       (e.g. Formspree: https://formspree.io/f/xxxx) to receive submissions,
-       and have the funding guide PDF ready to email back. -->
+  <!-- SETUP (one step): create a free form at formspree.io, then replace
+       YOUR_FORM_ID below with the real ID (e.g. https://formspree.io/f/abcdwxyz).
+       On submit, Formspree emails you the lead and redirects the visitor to
+       funding-thank-you.html, which auto-downloads downloads/SafePouch-2026-Funding-Guide.pdf.
+       The _next value must be the full absolute URL to the thank-you page. -->
   <section class="relative py-16 md:py-24 grain">
     <div class="max-w-4xl mx-auto px-5 md:px-8">
       <div class="reveal card p-8 md:p-12">
@@ -605,13 +607,14 @@
         </ul>
         <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="mt-8 max-w-xl">
           <input type="hidden" name="_subject" value="SafePouch funding guide request" />
+          <input type="hidden" name="_next" value="https://maeyo-borg.github.io/safepouch-website/funding-thank-you.html" />
           <div class="grid sm:grid-cols-2 gap-3">
             <input class="fld" type="email" name="email" placeholder="Work email" required />
             <input class="fld" type="text" name="school" placeholder="School or district" />
           </div>
           <button type="submit" class="btn-primary mt-3 w-full sm:w-auto">Get the free guide</button>
         </form>
-        <p class="mt-3 text-xs text-paper/40">We'll email you the guide — no spam, unsubscribe anytime.</p>
+        <p class="mt-3 text-xs text-paper/40">We'll send the guide straight to your screen — no spam, unsubscribe anytime.</p>
       </div>
     </div>
   </section>
