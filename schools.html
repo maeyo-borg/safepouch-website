@@ -246,7 +246,7 @@
     .nav-link:hover::after { right: 0; }
     .nav-link:focus-visible { outline: 2px solid var(--paper); outline-offset: 4px; border-radius: 2px; }
 
-    .bullet { width: 9px; height: 9px; border-radius: 9999px; background: var(--paper); display: inline-block; flex-shrink: 0; position: relative; }
+    .bullet { width: 9px; height: 9px; border-radius: 9999px; background: var(--brass-2); display: inline-block; flex-shrink: 0; position: relative; }
     .bullet::after { content:''; position:absolute; inset:3px; border-radius:9999px; background: var(--brass-2); }
 
     h1 { letter-spacing: -0.045em; }
@@ -299,6 +299,18 @@
     .mobile-close { position: absolute; top: 1.4rem; right: 1.4rem; background: transparent; border: 0; color: var(--paper); cursor: pointer; padding: 6px; }
     body.menu-open { overflow: hidden; }
 
+    /* Full-service rollout pennants */
+    .pennant { position: relative; text-align: center; padding: 26px 14px 42px;
+      background: linear-gradient(180deg, #191920, #101014);
+      clip-path: polygon(0 0, 100% 0, 100% 84%, 50% 100%, 0 84%);
+      transition: transform .28s cubic-bezier(.2,.9,.3,1.3);
+    }
+    .pennant:hover { transform: translateY(-5px); }
+    .pennant-label { font-family: 'Manrope', Inter, sans-serif; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 0.06em; font-size: 12.5px; line-height: 1.25; color: var(--paper); min-height: 2.5em;
+      display: flex; align-items: center; justify-content: center; }
+    .pennant-ico { margin-top: 16px; display: flex; align-items: center; justify-content: center; }
+    .pennant-ico svg { width: 34px; height: 34px; color: var(--brass-2); }
   </style>
 </head>
 <body class="bg-black text-paper">
@@ -404,7 +416,7 @@
         </ul>
       </div>
       <div class="reveal product-shot is-dark aspect-[3/2] max-w-lg w-full mx-auto">
-        <img src="images/pouch-branded-black.jpg" alt="A SafePouch printed with a school's branding" loading="lazy" decoding="async" />
+        <img src="images/pouch-desk-props.jpg" alt="A SafePouch on a classroom desk with markers and sticky notes" loading="lazy" decoding="async" />
       </div>
     </div>
   </section>
@@ -441,7 +453,7 @@
           </svg>
         </div>
         <div>
-          <h3 class="text-2xl md:text-3xl">1. Students lock their devices at the door</h3>
+          <h3 class="text-2xl md:text-3xl text-brass-2">1. Students lock their devices at the door</h3>
           <ul class="mt-6 space-y-3 text-paper/75">
             <li class="flex gap-3"><span class="bullet mt-2"></span>Each student gets a personal SafePouch at the start of the year.</li>
             <li class="flex gap-3"><span class="bullet mt-2"></span>They power down, drop the device in, and tap the pouch closed at the entrance.</li>
@@ -473,7 +485,7 @@
           </svg>
         </div>
         <div class="md:order-1">
-          <h3 class="text-2xl md:text-3xl">2. The pouch stays with them all day</h3>
+          <h3 class="text-2xl md:text-3xl text-brass-2">2. The pouch stays with them all day</h3>
           <ul class="mt-6 space-y-3 text-paper/75">
             <li class="flex gap-3"><span class="bullet mt-2"></span>In class, between periods, at lunch — the pouch goes everywhere their device would.</li>
             <li class="flex gap-3"><span class="bullet mt-2"></span>Emergencies are handled by staff devices and front-office unlock bases.</li>
@@ -514,7 +526,7 @@
           </svg>
         </div>
         <div>
-          <h3 class="text-2xl md:text-3xl">3. Unlock at exit, walk out, done</h3>
+          <h3 class="text-2xl md:text-3xl text-brass-2">3. Unlock at exit, walk out, done</h3>
           <ul class="mt-6 space-y-3 text-paper/75">
             <li class="flex gap-3"><span class="bullet mt-2"></span>SafePouch unlock bases sit at exits or classrooms — students tap to unlock as they leave.</li>
             <li class="flex gap-3"><span class="bullet mt-2"></span>No counting, no cleanup, no following-up the next morning.</li>
@@ -525,13 +537,44 @@
     </div>
   </section>
 
+  <!-- ============== Full-service rollout ============== -->
+  <section class="relative py-16 md:py-24 grain">
+    <div class="max-w-5xl mx-auto px-5 md:px-8">
+      <div class="reveal max-w-2xl mx-auto text-center">
+        <div class="text-xs font-bold uppercase tracking-[0.2em] text-brass-2">Full-service rollout</div>
+        <h2 class="mt-4 text-[30px] md:text-[44px] leading-[1.1]">We handle the whole rollout</h2>
+        <p class="mt-5 text-paper/65 leading-[1.75]">From the first planning call to ongoing support, we set your school up and stay with you the whole way.</p>
+      </div>
+
+      <div class="reveal mt-12 md:mt-14 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5">
+        <div class="pennant">
+          <div class="pennant-label">Implementation planning</div>
+          <div class="pennant-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg></div>
+        </div>
+        <div class="pennant">
+          <div class="pennant-label">Program orientation</div>
+          <div class="pennant-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        </div>
+        <div class="pennant">
+          <div class="pennant-label">On-site implementation</div>
+          <div class="pennant-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="13" y2="16"/></svg></div>
+        </div>
+        <div class="pennant">
+          <div class="pennant-label">Assessment &amp; evaluation</div>
+          <div class="pennant-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        </div>
+        <div class="pennant">
+          <div class="pennant-label">Ongoing support</div>
+          <div class="pennant-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.78 0L12 5.6l-1.02-1a5.5 5.5 0 1 0-7.78 7.78l1.02 1L12 21.23l7.78-7.85 1.02-1a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============== Concrete outcome ============== -->
   <section class="relative py-16 md:py-24">
-    <div class="max-w-5xl mx-auto px-5 md:px-8 grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-      <div class="reveal product-shot aspect-[3/2] w-full">
-        <img src="images/pouch-classroom.jpg" alt="A SafePouch on a classroom desk beside markers and sticky notes" loading="lazy" decoding="async" />
-      </div>
-      <div class="reveal lg:order-first">
+    <div class="max-w-3xl mx-auto px-5 md:px-8">
+      <div class="reveal card p-8 md:p-12">
         <div class="text-brass-2 font-bold text-sm uppercase tracking-widest">Concrete outcome</div>
         <p class="mt-4 text-[22px] md:text-[28px] leading-[1.4]">A school where devices <b>aren't a daily fight</b> — and where teachers can finally teach into the silence.</p>
         <p class="mt-6 text-paper/70 leading-[1.7]">Just the pouch on the desk — no phone in hand, no notifications, no side conversations with a screen. The tools that belong in the room stay in the room.</p>
