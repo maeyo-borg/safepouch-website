@@ -397,6 +397,14 @@
       font-size: 13px; font-weight: 800; letter-spacing: 0.01em;
       box-shadow: 0 14px 30px -12px rgba(0,0,0,0.8);
     }
+    /* Secondary callout for the blank name-label panel */
+    .brand-badge-name {
+      top: 71.5%; left: 48%;
+      padding: 5px 12px; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
+      background: var(--black); color: var(--brass-2);
+      border: 1px solid rgba(184,155,94,0.55);
+      box-shadow: 0 10px 22px -12px rgba(0,0,0,0.85);
+    }
     @media (prefers-reduced-motion: reduce) { .brand-pouch img { animation: none; } }
 
     @media (prefers-reduced-motion: reduce) {
@@ -716,7 +724,7 @@
       </p>
       <p class="mt-7 inline-flex items-center gap-2.5 text-sm text-paper/55">
         <span class="inline-block w-1.5 h-1.5 rounded-full bg-brass-2" style="box-shadow:0 0 9px rgba(184,155,94,0.85)"></span>
-        Now in use at <span class="text-paper/85 font-semibold">Maranatha High School</span>
+        <span>Now in use at <span class="text-paper/85 font-semibold">Maranatha High School</span></span>
       </p>
     </div>
   </section>
@@ -846,6 +854,7 @@
           <div class="brand-pouch">
             <img src="images/pouch-cutout-back.webp" alt="A SafePouch customized with a school or venue logo" class="floaty" loading="lazy" decoding="async" />
             <div class="brand-badge">Your logo here</div>
+            <div class="brand-badge brand-badge-name">Name tag</div>
           </div>
         </div>
         <div class="lg:order-1">
