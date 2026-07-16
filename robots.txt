@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://safepouch.co/sitemap.xml
+Sitemap: https://getsafepouch.com/sitemap.xml
