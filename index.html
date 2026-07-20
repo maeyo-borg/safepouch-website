@@ -157,12 +157,14 @@
     }
 
     /* Legibility scrim + brass treatment over the imagery */
+    /* Lead hero slide (Maranatha) reads brighter — nudge its framing */
+    .hero-slide:nth-child(1) { object-position: center 42%; }
     .hero-media-scrim {
       position: absolute; inset: 0;
       pointer-events: none;
       background:
-        radial-gradient(ellipse 78% 62% at 50% 30%, rgba(10,10,11,0.14), rgba(10,10,11,0.52) 80%),
-        linear-gradient(180deg, rgba(10,10,11,0.40) 0%, rgba(10,10,11,0.30) 52%, rgba(10,10,11,0.48) 82%, var(--black) 100%);
+        radial-gradient(ellipse 80% 64% at 50% 32%, rgba(10,10,11,0.20), rgba(10,10,11,0.56) 82%),
+        linear-gradient(180deg, rgba(10,10,11,0.50) 0%, rgba(10,10,11,0.36) 50%, rgba(10,10,11,0.54) 82%, var(--black) 100%);
     }
     .hero-media-scrim::after {
       content: '';
@@ -697,8 +699,8 @@
   <!-- ============== HERO ============== -->
   <section class="hero-stage grain relative min-h-[78vh] flex flex-col justify-center pt-32 md:pt-40 pb-16 md:pb-20">
     <div class="hero-media" aria-hidden="true">
-      <img class="hero-slide" src="images/safepouch-venue-hero.jpg" alt="" loading="eager" decoding="async" />
-      <img class="hero-slide" src="images/safepouch-crowd.jpg" alt="" loading="lazy" decoding="async" />
+      <img class="hero-slide" src="images/Maranatha.jpg" alt="" loading="eager" decoding="async" />
+      <img class="hero-slide" src="images/safepouch-venue-hero.jpg" alt="" loading="lazy" decoding="async" />
       <img class="hero-slide" src="images/safepouch-cdj-closeup.jpg" alt="" loading="lazy" decoding="async" />
       <div class="hero-media-scrim"></div>
     </div>
@@ -713,6 +715,10 @@
       <div class="mt-10 flex items-center justify-center">
         <a href="contact.html" class="btn-primary">Contact Us</a>
       </div>
+
+      <p class="mt-7 text-[0.72rem] md:text-[0.8rem] tracking-[0.18em] uppercase text-paper/75">
+        In use at Maranatha High School · Pasadena, CA
+      </p>
     </div>
   </section>
 
