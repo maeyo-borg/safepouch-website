@@ -173,9 +173,23 @@
       mix-blend-mode: overlay;
     }
 
+    /* Hero caption tracks the Maranatha (first) slide's on-screen window */
+    .hero-caption {
+      opacity: 0;
+      animation: heroCaptionFade 27s linear infinite;
+    }
+    @keyframes heroCaptionFade {
+      0%   { opacity: 0; transform: translateY(5px); }
+      4%   { opacity: 1; transform: translateY(0); }
+      31%  { opacity: 1; transform: translateY(0); }
+      38%  { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .hero-slide { animation: none; transform: scale(1.04); }
       .hero-slide:nth-child(1) { opacity: 1; }
+      .hero-caption { animation: none; opacity: 1; }
       .sc-pouch-front, .sc-pouch-back, .sc-tag { animation: none; }
     }
 
@@ -716,7 +730,7 @@
         <a href="contact.html" class="btn-primary">Contact Us</a>
       </div>
 
-      <p class="mt-7 text-[0.72rem] md:text-[0.8rem] tracking-[0.18em] uppercase text-paper/75">
+      <p class="hero-caption mt-7 text-[0.72rem] md:text-[0.8rem] tracking-[0.18em] uppercase text-paper/75">
         In use at Maranatha High School · Pasadena, CA
       </p>
     </div>
